@@ -1,29 +1,17 @@
-# Compiled class files
-*.class
-
-# Log files
-*.log
-
-# Temporary files
-*.tmp
-
-# IntelliJ IDEA project files
-.idea/
 *.iml
-
-# Gradle files
-.gradle/
-build/
-
-# Kotlin specific
-*.kotlin_module
-*.kotlin_metadata
-
-# WASM specific
-*.wasm
-*.wat
-*.wast
-
-# Dependency directories
-node_modules/
+xcuserdata
+local.properties
+.DS_Store
+captures
+.externalNativeBuild
+.cxx
+*.xcodeproj/*
+!*.xcodeproj/project.pbxproj
+!*.xcodeproj/xcshareddata/
+!*.xcodeproj/project.xcworkspace/
+!*.xcworkspace/contents.xcworkspacedata
+**/xcshareddata/WorkspaceSettings.xcsettings
 out/
+.gradle/
+.idea/
+*.log

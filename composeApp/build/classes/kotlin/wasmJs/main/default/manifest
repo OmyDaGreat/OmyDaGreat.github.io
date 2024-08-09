@@ -1,0 +1,11 @@
+abi_version=1.8.0
+builtins_platform=WASM
+compiler_version=2.0.0
+depends=components.resources\:library components.ui-tooling-preview\:library org.jetbrains.androidx.lifecycle\:lifecycle-viewmodel io.ktor\:ktor-serialization-kotlinx-json org.jetbrains.kotlinx\:kotlinx-serialization-json co.touchlab\:kermit io.ktor\:ktor-client-content-negotiation io.ktor\:ktor-client-js io.ktor\:ktor-client-core org.jetbrains.androidx.lifecycle\:lifecycle-runtime-compose org.jetbrains.androidx.lifecycle\:lifecycle-runtime org.jetbrains.androidx.lifecycle\:lifecycle-common org.jetbrains.compose.annotation-internal\:annotation io.ktor\:ktor-serialization-kotlinx org.jetbrains.kotlinx\:kotlinx-serialization-core co.touchlab\:kermit-core org.jetbrains.compose.material\:material org.jetbrains.compose.material\:material-ripple org.jetbrains.compose.foundation\:foundation org.jetbrains.compose.animation\:animation org.jetbrains.compose.animation\:animation-core io.ktor\:ktor-events io.ktor\:ktor-websocket-serialization io.ktor\:ktor-sse io.ktor\:ktor-serialization io.ktor\:ktor-websockets io.ktor\:ktor-http io.ktor\:ktor-utils io.ktor\:ktor-io org.jetbrains.kotlinx\:kotlinx-coroutines-core org.jetbrains.kotlinx\:atomicfu org.jetbrains.kotlinx\:kotlinx-io-core org.jetbrains.kotlinx\:kotlinx-io-bytestring org.jetbrains.compose.material\:material-icons-core org.jetbrains.compose.foundation\:foundation-layout org.jetbrains.compose.ui\:ui org.jetbrains.compose.runtime\:runtime-saveable kotlin org.jetbrains.compose.runtime\:runtime org.jetbrains.compose.ui\:ui-text org.jetbrains.compose.ui\:ui-graphics org.jetbrains.compose.ui\:ui-unit org.jetbrains.skiko\:skiko org.jetbrains.compose.ui\:ui-geometry org.jetbrains.compose.ui\:ui-util
+ir_signature_versions=1,2
+jsOutputName=composeApp
+metadata_version=1.4.1
+serializedIrFileFingerprints=gmostbk6eqzh.62qbs73w1adx 1h981mgczfura.1pn4yzgp9glkn 2hhkkipkz0y84.152arski3343u yvvzmnibfqnj.1lnciwp6qoovv 1ylubngjrfmht.3tz030x48rath 16qde4yha53vo.yxou8c02s2qm
+serializedKlibFingerprint=3n33ze6qirf5t.2arufjmz8oq8v
+unique_name=GithubMainPage\:composeApp
+wasm_targets=wasm-js
