@@ -8,7 +8,7 @@ plugins {
     alias(libs.plugins.kobwebx.markdown)
 }
 
-group = "com.binayshaw7777.kotfolio"
+group = "xyz.malefic"
 version = "1.0-SNAPSHOT"
 
 kobweb {
