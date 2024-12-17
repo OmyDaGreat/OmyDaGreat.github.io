@@ -26,7 +26,7 @@ Kotfolio is a minimalistic and clean portfolio project built with [Kobweb](https
 - **[Kotlin](https://kotlinlang.org/):** Modern programming language for concise and expressive code.
 
 
-## Previews: 
+## Previews:
 ![Kotffolio Preview](https://github.com/binayshaw7777/Kotfolio/assets/62587060/78a76148-318e-42c3-96c3-782565dc7a92)
 
 ## Mockups
@@ -47,14 +47,14 @@ Follow these steps to set up Kotfolio locally:
 
 2. **Getting Started**
 
-    First, run the development server by typing the following command in a terminal under the `site` folder:
+   First, run the development server by typing the following command in a terminal under the `site` folder:
 
     ```bash
     $ cd site
     $ kobweb run
     ```
 
-    Open [http://localhost:8080](http://localhost:8080) with your browser to see the result.
+   Open [http://localhost:8080](http://localhost:8080) with your browser to see the result.
 
 You can use any editor you want for the project, but we recommend using **IntelliJ IDEA Community Edition** downloaded
 using the [Toolbox App](https://www.jetbrains.com/toolbox-app/).
