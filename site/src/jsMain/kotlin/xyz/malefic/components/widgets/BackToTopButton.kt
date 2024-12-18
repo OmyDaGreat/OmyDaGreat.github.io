@@ -6,11 +6,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import com.varabyte.kobweb.compose.css.CSSTransition
-import com.varabyte.kobweb.compose.css.Cursor
-import com.varabyte.kobweb.compose.css.FontWeight
-import com.varabyte.kobweb.compose.css.PointerEvents
-import com.varabyte.kobweb.compose.css.Visibility
+import com.varabyte.kobweb.compose.css.*
 import com.varabyte.kobweb.compose.foundation.layout.Arrangement
 import com.varabyte.kobweb.compose.foundation.layout.Box
 import com.varabyte.kobweb.compose.foundation.layout.Column
@@ -72,10 +68,11 @@ val BackToTopButtonStyle = CssStyle {
       .cursor(Cursor.Pointer)
       .styleModifier { property("pointer-events", "auto") }
       .transition(
-        CSSTransition(
+        Transition.of(
           property = "translate",
           duration = 200.ms,
           timingFunction = AnimationTimingFunction.Ease,
+          delay = null
         )
       )
   }

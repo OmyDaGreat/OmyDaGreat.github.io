@@ -62,3 +62,9 @@ spotless {
         ktfmt().googleStyle()
     }
 }
+
+tasks {
+    kobwebStart {
+        dependsOn("spotlessApply")
+    }
+}
