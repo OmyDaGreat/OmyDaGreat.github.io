@@ -1,5 +1,5 @@
 [versions]
-jetbrains-compose = "1.8.0-alpha01"
+jetbrains-compose = "1.8.0-dev1920"
 kobweb = "0.20.0"
 kotlin = "2.1.0"
 spotless = "7.0.0.BETA4"
