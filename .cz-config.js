@@ -25,7 +25,7 @@ module.exports = {
     {value: 'update', name: 'update:      Update external tools or libraries'},
   ],
 
-  scopes: [{name: 'components'}, {name: 'index'}, {name: 'utils'}, {name: 'aboutme'}],
+  scopes: [{name: 'components'}, {name: 'index'}, {name: 'utils'}, {name: 'constants'}],
 
   usePreparedCommit: false, // to re-use commit from ./.git/COMMIT_EDITMSG
   allowTicketNumber: false,

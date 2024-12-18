@@ -11,8 +11,8 @@ object Constants {
   const val PROJECT_PASSGENIE_URL = "https://github.com/binayshaw7777/PassGinie-Kobweb"
   const val PROJECT_PRESIN_URL = "https://github.com/binayshaw7777/Microsoft-Engage-2022-PresIN"
 
-  const val HELLO_IM = "Hello I'm"
-  const val OM_GUPTA = "Om Gupta."
+  const val HELLO_IM = "Hi, I'm"
+  const val OM_GUPTA = "Om Gupta"
   const val AND_ITS_NICE_TO_MEET_YOU = "and it's nice to meet you!"
   const val RESUME = "Resume"
 
