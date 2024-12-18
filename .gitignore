@@ -30,3 +30,5 @@ kotlin-js-store
 # Gradle ignores
 .gradle
 
+.qodo# Kotlin ignores
+.kotlin

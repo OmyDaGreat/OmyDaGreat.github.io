@@ -72,7 +72,7 @@ val BackToTopButtonStyle = CssStyle {
           property = "translate",
           duration = 200.ms,
           timingFunction = AnimationTimingFunction.Ease,
-          delay = null
+          delay = null,
         )
       )
   }

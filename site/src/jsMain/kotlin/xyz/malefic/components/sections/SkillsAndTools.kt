@@ -43,33 +43,17 @@ fun SkillsAndTools() {
           modifier = Modifier.padding(all = 1.cssRem),
           numColumns = numColumns(base = 2, sm = 2, md = 3, lg = 4),
         ) {
-          GlassBox(modifier = Modifier.size(65.px).margin(all = 0.6.cssRem)) {
-            Image(
-              src = Res.Images.KOTLIN_LOGO,
-              modifier = Modifier.size(42.px).styleModifier { mixBlendMode(MixBlendMode.Normal) },
+          Res.Images.apply {
+            IconGlassBoxes(
+              KOTLIN_LOGO.withMod(Modifier.styleModifier { mixBlendMode(MixBlendMode.Normal) }),
+              JAVA_LOGO.src,
+              HTML_LOGO.src,
+              CSS_LOGO.src,
+              JAVASCRIPT_LOGO.src,
+              EXPRESS_LOGO.src,
+              NODEJS_LOGO.src,
+              MARKDOWN_LOGO.src,
             )
-          }
-          GlassBox(modifier = Modifier.size(65.px).margin(all = 0.6.cssRem)) {
-            Image(src = Res.Images.JAVA_LOGO, modifier = Modifier.size(42.px))
-          }
-          GlassBox(modifier = Modifier.size(65.px).margin(all = 0.6.cssRem)) {
-            Image(src = Res.Images.HTML_LOGO, modifier = Modifier.size(42.px))
-          }
-          GlassBox(modifier = Modifier.size(65.px).margin(all = 0.6.cssRem)) {
-            Image(src = Res.Images.CSS_LOGO, modifier = Modifier.size(42.px))
-          }
-
-          GlassBox(modifier = Modifier.size(65.px).margin(all = 0.6.cssRem)) {
-            Image(src = Res.Images.JAVASCRIPT_LOGO, modifier = Modifier.size(42.px))
-          }
-          GlassBox(modifier = Modifier.size(65.px).margin(all = 0.6.cssRem)) {
-            Image(src = Res.Images.EXPRESS_LOGO, modifier = Modifier.size(42.px))
-          }
-          GlassBox(modifier = Modifier.size(65.px).margin(all = 0.6.cssRem)) {
-            Image(src = Res.Images.NODEJS_LOGO, modifier = Modifier.size(42.px))
-          }
-          GlassBox(modifier = Modifier.size(65.px).margin(all = 0.6.cssRem)) {
-            Image(src = Res.Images.MARKDOWN_LOGO, modifier = Modifier.size(42.px))
           }
         }
       }
@@ -79,32 +63,87 @@ fun SkillsAndTools() {
           modifier = Modifier.padding(all = 1.cssRem),
           numColumns = numColumns(base = 2, sm = 2, md = 3, lg = 4),
         ) {
-          GlassBox(modifier = Modifier.size(65.px).margin(all = 0.6.cssRem)) {
-            Image(src = Res.Images.ANDROID_LOGO, modifier = Modifier.size(42.px))
-          }
-          GlassBox(modifier = Modifier.size(65.px).margin(all = 0.6.cssRem)) {
-            Image(src = Res.Images.INTELLIJ_LOGO, modifier = Modifier.size(42.px))
-          }
-          GlassBox(modifier = Modifier.size(65.px).margin(all = 0.6.cssRem)) {
-            Image(src = Res.Images.FIGMA_LOGO, modifier = Modifier.size(42.px))
-          }
-          GlassBox(modifier = Modifier.size(65.px).margin(all = 0.6.cssRem)) {
-            Image(src = Res.Images.FIREBASE_LOGO, modifier = Modifier.size(42.px))
-          }
-          GlassBox(modifier = Modifier.size(65.px).margin(all = 0.6.cssRem)) {
-            Image(src = Res.Images.MONGODB_LOGO, modifier = Modifier.size(42.px))
-          }
-          GlassBox(modifier = Modifier.size(65.px).margin(all = 0.6.cssRem)) {
-            Image(src = Res.Images.VSCODE_LOGO, modifier = Modifier.size(42.px))
-          }
-          GlassBox(modifier = Modifier.size(65.px).margin(all = 0.6.cssRem)) {
-            Image(src = Res.Images.GIT_LOGO, modifier = Modifier.size(42.px))
-          }
-          GlassBox(modifier = Modifier.size(65.px).margin(all = 0.6.cssRem)) {
-            Image(src = Res.Images.POSTMAN_LOGO, modifier = Modifier.size(42.px))
+          Res.Images.apply {
+            IconGlassBoxes(
+              ANDROID_LOGO.src,
+              INTELLIJ_LOGO.src,
+              FIGMA_LOGO.src,
+              FIREBASE_LOGO.src,
+              MONGODB_LOGO.src,
+              VSCODE_LOGO.src,
+              GIT_LOGO.src,
+              POSTMAN_LOGO.src,
+            )
           }
         }
       }
     }
   }
+}
+
+/**
+ * A composable function that creates a glass-like box containing an icon image.
+ *
+ * @param src The source URL of the image to be displayed inside the glass box.
+ * @param modifier A [Modifier] to be applied to the image, allowing for customization of its size
+ *   and appearance.
+ */
+@Composable
+fun IconGlassBox(src: String, modifier: Modifier = Modifier) {
+  GlassBox(modifier = Modifier.size(65.px).margin(all = 0.6.cssRem)) {
+    Image(src = src, modifier = Modifier.size(42.px).then(modifier))
+  }
+}
+
+/**
+ * A composable function that displays a series of glass-like boxes, each containing an icon image.
+ *
+ * @param iconSources A variable number of image source URLs to be displayed within the glass boxes.
+ */
+@Composable
+fun IconGlassBoxes(vararg iconSources: IconSource) {
+  iconSources.forEach { iconSource ->
+    when (iconSource) {
+      is IconSource.Single -> {
+        IconGlassBox(iconSource.string)
+      }
+      is IconSource.WithModifier -> {
+        IconGlassBox(iconSource.string, iconSource.modifier)
+      }
+    }
+  }
+}
+
+/**
+ * Represents a source for an icon, which can either be a single source or a source with an
+ * additional modifier.
+ *
+ * @property Single A single icon source represented by a URL or path.
+ * @property WithModifier An icon source with an associated modifier for additional styling or
+ *   behavior.
+ */
+sealed class IconSource {
+  data class Single(val string: String) : IconSource()
+
+  data class WithModifier(val string: String, val modifier: Modifier) : IconSource()
+}
+
+/**
+ * Extension property to convert a string into an [IconSource.Single].
+ *
+ * @return An [IconSource.Single] containing the string.
+ * @receiver The string representing the icon source URL or path.
+ */
+val String.src: IconSource
+  get() = IconSource.Single(this)
+
+/**
+ * Converts a string into an IconSource with an associated modifier.
+ *
+ * @param modifier A [Modifier] to be applied for additional styling or behavior.
+ * @return An [IconSource.WithModifier] containing the string and the modifier.
+ * @receiver The string representing the icon source URL or path.
+ */
+fun String.withMod(modifier: Modifier): IconSource {
+  return IconSource.WithModifier(this, modifier)
 }

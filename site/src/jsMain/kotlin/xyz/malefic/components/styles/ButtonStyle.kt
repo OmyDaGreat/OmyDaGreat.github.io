@@ -18,7 +18,7 @@ val ButtonStyle = CssStyle {
           property = TransitionProperty.All,
           duration = 300.ms,
           timingFunction = null,
-          delay = null
+          delay = null,
         )
       )
   }
