@@ -6,6 +6,8 @@ plugins {
     alias(libs.plugins.jetbrains.compose)
     alias(libs.plugins.kobweb.application)
     alias(libs.plugins.kobwebx.markdown)
+    alias(libs.plugins.compose.compiler)
+    alias(libs.plugins.spotless)
 }
 
 group = "xyz.malefic"
@@ -31,9 +33,7 @@ kobweb {
 }
 
 kotlin {
-    // This example is frontend only. However, for a fullstack app, you can uncomment the includeServer parameter
-    // and the `jvmMain` source set below.
-    configAsKobwebApplication("kotfolio" /*, includeServer = true*/)
+    configAsKobwebApplication("kotfolio")
 
     sourceSets {
         val commonMain by getting {
@@ -53,12 +53,12 @@ kotlin {
                 implementation(libs.kobwebx.markdown)
             }
         }
+    }
+}
 
-        // Uncomment the following if you pass `includeServer = true` into the `configAsKobwebApplication` call.
-//        val jvmMain by getting {
-//            dependencies {
-//                compileOnly(libs.kobweb.api) // Provided by Kobweb backend at runtime
-//            }
-//        }
+spotless {
+    kotlin {
+        target("site/src/**/*.kt")
+        ktfmt().googleStyle()
     }
 }

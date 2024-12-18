@@ -37,13 +37,13 @@ import com.varabyte.kobweb.compose.ui.modifiers.translateY
 import com.varabyte.kobweb.compose.ui.modifiers.visibility
 import com.varabyte.kobweb.compose.ui.modifiers.zIndex
 import com.varabyte.kobweb.compose.ui.styleModifier
-import com.varabyte.kobweb.silk.components.animation.Keyframes
-import com.varabyte.kobweb.silk.components.animation.toAnimation
-import com.varabyte.kobweb.silk.components.style.ComponentStyle
-import com.varabyte.kobweb.silk.components.style.base
-import com.varabyte.kobweb.silk.components.style.hover
-import com.varabyte.kobweb.silk.components.style.toModifier
 import com.varabyte.kobweb.silk.components.text.SpanText
+import com.varabyte.kobweb.silk.style.CssStyle
+import com.varabyte.kobweb.silk.style.animation.Keyframes
+import com.varabyte.kobweb.silk.style.animation.toAnimation
+import com.varabyte.kobweb.silk.style.base
+import com.varabyte.kobweb.silk.style.selectors.hover
+import com.varabyte.kobweb.silk.style.toModifier
 import com.varabyte.kobweb.silk.theme.colors.ColorMode
 import kotlinx.browser.document
 import kotlinx.browser.window
@@ -59,110 +59,90 @@ import org.w3c.dom.ScrollBehavior
 import org.w3c.dom.ScrollToOptions
 import xyz.malefic.utils.Res
 
+val ArrowUpStyle =
+  CssStyle.base {
+    Modifier.fontFamily(Res.Fonts.Space_Grotesk).fontWeight(FontWeight.Light).fontSize(1.4.cssRem)
+  }
 
-val ArrowUpStyle by ComponentStyle.base {
-    Modifier
-        .fontFamily(Res.Fonts.Space_Grotesk)
-        .fontWeight(FontWeight.Light)
-        .fontSize(1.4.cssRem)
+val BackToTopButtonStyle = CssStyle {
+  base {
+    Modifier.size(50.px)
+      .borderRadius(100.percent)
+      .margin(right = 40.px, bottom = 40.px)
+      .cursor(Cursor.Pointer)
+      .styleModifier { property("pointer-events", "auto") }
+      .transition(
+        CSSTransition(
+          property = "translate",
+          duration = 200.ms,
+          timingFunction = AnimationTimingFunction.Ease,
+        )
+      )
+  }
+  hover { Modifier.translateY((-10).px) }
 }
 
-
-val BackToTopButtonStyle by ComponentStyle {
-    base {
-        Modifier
-            .size(50.px)
-            .borderRadius(100.percent)
-            .margin(
-                right = 40.px,
-                bottom = 40.px
-            )
-            .cursor(Cursor.Pointer)
-            .styleModifier {
-                property("pointer-events", "auto")
-            }
-            .transition(
-                CSSTransition(
-                    property = "translate",
-                    duration = 200.ms, timingFunction = AnimationTimingFunction.Ease
-                )
-            )
-    }
-    hover {
-        Modifier.translateY((-10).px)
-    }
+val FadeInKeyFrames = Keyframes {
+  0.percent { Modifier.opacity(0) }
+  100.percent { Modifier.opacity(1) }
 }
-
-
-val FadeInKeyFrames by Keyframes {
-    0.percent {
-        Modifier
-            .opacity(0)
-    }
-    100.percent {
-        Modifier
-            .opacity(1)
-    }
-}
-
 
 @Composable
 fun BackToTopButton() {
-    var scroll: Double? by remember { mutableStateOf(null) }
+  var scroll: Double? by remember { mutableStateOf(null) }
 
-    LaunchedEffect(Unit) {
-        window.addEventListener(type = "scroll", callback = {
-            scroll = document.documentElement?.scrollTop
-        })
-    }
+  LaunchedEffect(Unit) {
+    window.addEventListener(
+      type = "scroll",
+      callback = { scroll = document.documentElement?.scrollTop },
+    )
+  }
 
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .position(Position.Fixed)
-            .zIndex(1)
-            .pointerEvents(PointerEvents.None),
-        verticalArrangement = Arrangement.Bottom,
-        horizontalAlignment = Alignment.End
-    ) {
-        val show = scroll != null && scroll!! > 400.0
+  Column(
+    modifier =
+      Modifier.fillMaxSize().position(Position.Fixed).zIndex(1).pointerEvents(PointerEvents.None),
+    verticalArrangement = Arrangement.Bottom,
+    horizontalAlignment = Alignment.End,
+  ) {
+    val show = scroll != null && scroll!! > 400.0
 
-        val buttonColor = when (ColorMode.current) {
-            ColorMode.LIGHT -> Colors.Black
-            ColorMode.DARK -> Colors.White
-        }
-        val arrowColor = when (ColorMode.current) {
-            ColorMode.LIGHT -> Colors.White
-            ColorMode.DARK -> Colors.Black
-        }
+    val buttonColor =
+      when (ColorMode.current) {
+        ColorMode.LIGHT -> Colors.Black
+        ColorMode.DARK -> Colors.White
+      }
+    val arrowColor =
+      when (ColorMode.current) {
+        ColorMode.LIGHT -> Colors.White
+        ColorMode.DARK -> Colors.Black
+      }
 
-        Box(
-            modifier = BackToTopButtonStyle
-                .toModifier()
-                .backgroundColor(buttonColor)
-                .visibility(if (show) Visibility.Visible else Visibility.Hidden)
-                .onClick {
-                    document.documentElement?.scroll(ScrollToOptions(top = 0.0, behavior = ScrollBehavior.SMOOTH))
-                }
-                .then(
-                    if (show) {
-                        Modifier.animation(
-                            FadeInKeyFrames.toAnimation(
-                                null,
-                                duration = 1.5.s,
-                                timingFunction = AnimationTimingFunction.EaseInOut
-                            )
-                        )
-                    } else {
-                        Modifier
-                    }
-                ),
-            contentAlignment = Alignment.Center
-        ) {
-            SpanText(
-                text = "↑",
-                modifier = ArrowUpStyle.toModifier().color(arrowColor)
+    Box(
+      modifier =
+        BackToTopButtonStyle.toModifier()
+          .backgroundColor(buttonColor)
+          .visibility(if (show) Visibility.Visible else Visibility.Hidden)
+          .onClick {
+            document.documentElement?.scroll(
+              ScrollToOptions(top = 0.0, behavior = ScrollBehavior.SMOOTH)
             )
-        }
+          }
+          .then(
+            if (show) {
+              Modifier.animation(
+                FadeInKeyFrames.toAnimation(
+                  null,
+                  duration = 1.5.s,
+                  timingFunction = AnimationTimingFunction.EaseInOut,
+                )
+              )
+            } else {
+              Modifier
+            }
+          ),
+      contentAlignment = Alignment.Center,
+    ) {
+      SpanText(text = "↑", modifier = ArrowUpStyle.toModifier().color(arrowColor))
     }
+  }
 }

@@ -15,8 +15,8 @@ import com.varabyte.kobweb.compose.ui.modifiers.textAlign
 import com.varabyte.kobweb.compose.ui.toAttrs
 import com.varabyte.kobweb.silk.components.layout.SimpleGrid
 import com.varabyte.kobweb.silk.components.layout.numColumns
-import com.varabyte.kobweb.silk.components.style.toModifier
 import com.varabyte.kobweb.silk.components.text.SpanText
+import com.varabyte.kobweb.silk.style.toModifier
 import com.varabyte.kobweb.silk.theme.colors.ColorMode
 import org.jetbrains.compose.web.css.cssRem
 import org.jetbrains.compose.web.dom.Span
@@ -30,53 +30,46 @@ import xyz.malefic.utils.getAllWorkExperience
 
 @Composable
 fun Experience() {
-    Column(
-        modifier = ExperienceStyle.toModifier().id("experience"),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
+  Column(
+    modifier = ExperienceStyle.toModifier().id("experience"),
+    horizontalAlignment = Alignment.CenterHorizontally,
+    verticalArrangement = Arrangement.Center,
+  ) {
+    SectionTitle(Constants.EXPERIENCE_TITLE)
+
+    Span(
+      SectionDescriptionStyle.toModifier()
+        .textAlign(TextAlign.Center)
+        .fontFamily(Res.Fonts.DM_SANS)
+        .color(
+          when (ColorMode.current) {
+            ColorMode.LIGHT -> Colors.Gray
+            ColorMode.DARK -> Colors.DimGray
+          }
+        )
+        .toAttrs()
     ) {
-
-        SectionTitle(Constants.EXPERIENCE_TITLE)
-
-        Span(
-            SectionDescriptionStyle.toModifier()
-                .textAlign(TextAlign.Center)
-                .fontFamily(Res.Fonts.DM_SANS)
-                .color(
-                    when (ColorMode.current) {
-                        ColorMode.LIGHT -> Colors.Gray
-                        ColorMode.DARK -> Colors.DimGray
-                    }
-                )
-                .toAttrs()
-        ) {
-            SpanText(
-                text = Constants.EXPERIENCE_SECTION_TEXT
-            )
-            SpanText(
-                text = Constants.FIVE_MONTH,
-                modifier = Modifier
-                    .color(
-                        when (ColorMode.current) {
-                            ColorMode.LIGHT -> Colors.Black
-                            ColorMode.DARK -> Colors.White
-                        }
-                    )
-            )
-            SpanText(
-                text = Constants.OF_INTERNSHIP
-            )
-        }
-
-        SimpleGrid(
-            numColumns = numColumns(base = 1, md = 3),
-            modifier = Modifier.margin(topBottom = 2.cssRem)
-        ) {
-            val workExperiences = getAllWorkExperience()
-
-            repeat(workExperiences.size) {
-                WorkExperienceBlock(workExperience = workExperiences[it])
+      SpanText(text = Constants.EXPERIENCE_SECTION_TEXT)
+      SpanText(
+        text = Constants.FIVE_MONTH,
+        modifier =
+          Modifier.color(
+            when (ColorMode.current) {
+              ColorMode.LIGHT -> Colors.Black
+              ColorMode.DARK -> Colors.White
             }
-        }
+          ),
+      )
+      SpanText(text = Constants.OF_INTERNSHIP)
     }
+
+    SimpleGrid(
+      numColumns = numColumns(base = 1, md = 3),
+      modifier = Modifier.margin(topBottom = 2.cssRem),
+    ) {
+      val workExperiences = getAllWorkExperience()
+
+      repeat(workExperiences.size) { WorkExperienceBlock(workExperience = workExperiences[it]) }
+    }
+  }
 }

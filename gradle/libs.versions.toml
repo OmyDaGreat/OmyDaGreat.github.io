@@ -1,7 +1,8 @@
 [versions]
-jetbrains-compose = "1.5.11"
-kobweb = "0.15.3"
-kotlin = "1.9.21"
+jetbrains-compose = "1.7.1"
+kobweb = "0.20.0"
+kotlin = "2.1.0"
+spotless = "7.0.0.BETA4"
 
 [libraries]
 kobweb-api = { module = "com.varabyte.kobweb:kobweb-api", version.ref = "kobweb" }
@@ -18,3 +19,5 @@ kobweb-application = { id = "com.varabyte.kobweb.application", version.ref = "ko
 kobweb-library = { id = "com.varabyte.kobweb.library", version.ref = "kobweb" }
 kobwebx-markdown = { id = "com.varabyte.kobwebx.markdown", version.ref = "kobweb" }
 kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+spotless = { id = "com.diffplug.spotless", version.ref = "spotless" }
