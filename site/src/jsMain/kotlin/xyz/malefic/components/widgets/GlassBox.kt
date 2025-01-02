@@ -20,35 +20,35 @@ import xyz.malefic.utils.Res.Colors.GLASS_BOX_BORDER_COLOR_LIGHT
 
 @Composable
 fun GlassBox(
-  modifier: Modifier = Modifier,
-  roundedCorners: CSSLengthOrPercentageNumericValue = 10.px,
-  borderWidth: CSSLengthNumericValue = 1.px,
-  borderStyle: LineStyle = LineStyle.Solid,
-  borderColor: CSSColorValue =
-    when (ColorMode.current) {
-      ColorMode.LIGHT -> GLASS_BOX_BORDER_COLOR_LIGHT
-      ColorMode.DARK -> GLASS_BOX_BORDER_COLOR_DARK
-    },
-  gradientDirection: LinearGradient.Direction = LinearGradient.Direction.ToBottomRight,
-  startColor: CSSColorValue = rgba(r = 255, g = 255, b = 255, a = 0),
-  endColor: CSSColorValue = rgba(r = 255, g = 255, b = 255, a = 0.06),
-  blendMode: MixBlendMode = MixBlendMode.Normal,
-  content: @Composable BoxScope.() -> Unit,
+    modifier: Modifier = Modifier,
+    roundedCorners: CSSLengthOrPercentageNumericValue = 10.px,
+    borderWidth: CSSLengthNumericValue = 1.px,
+    borderStyle: LineStyle = LineStyle.Solid,
+    borderColor: CSSColorValue =
+        when (ColorMode.current) {
+            ColorMode.LIGHT -> GLASS_BOX_BORDER_COLOR_LIGHT
+            ColorMode.DARK -> GLASS_BOX_BORDER_COLOR_DARK
+        },
+    gradientDirection: LinearGradient.Direction = LinearGradient.Direction.ToBottomRight,
+    startColor: CSSColorValue = rgba(r = 255, g = 255, b = 255, a = 0),
+    endColor: CSSColorValue = rgba(r = 255, g = 255, b = 255, a = 0.06),
+    blendMode: MixBlendMode = MixBlendMode.Normal,
+    content: @Composable BoxScope.() -> Unit,
 ) {
-
-  Box(
-    modifier = Modifier.margin(leftRight = 1.cssRem).then(modifier),
-    contentAlignment = Alignment.Center,
-  ) {
     Box(
-      modifier =
-        Modifier.fillMaxSize()
-          .margin(leftRight = 1.cssRem)
-          .borderRadius(roundedCorners)
-          .border(width = borderWidth, style = borderStyle, color = borderColor)
-          .styleModifier { mixBlendMode(blendMode) }
-          .backgroundImage(linearGradient(gradientDirection, startColor, endColor))
-    )
-    content()
-  }
+        modifier = Modifier.margin(leftRight = 1.cssRem).then(modifier),
+        contentAlignment = Alignment.Center,
+    ) {
+        Box(
+            modifier =
+                Modifier
+                    .fillMaxSize()
+                    .margin(leftRight = 1.cssRem)
+                    .borderRadius(roundedCorners)
+                    .border(width = borderWidth, style = borderStyle, color = borderColor)
+                    .styleModifier { mixBlendMode(blendMode) }
+                    .backgroundImage(linearGradient(gradientDirection, startColor, endColor)),
+        )
+        content()
+    }
 }

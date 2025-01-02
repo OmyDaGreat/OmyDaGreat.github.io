@@ -22,22 +22,22 @@ import xyz.malefic.utils.Res
 
 @Composable
 fun SectionTitle(sectionTitleText: String) {
-  Row {
-    Div(SubheadlineTextStyle.toAttrs()) {
-      SpanText(
-        text = sectionTitleText,
-        modifier =
-          SectionTitleStyle.toModifier()
-            .align(Alignment.Bottom)
-            .color(
-              when (ColorMode.current) {
-                ColorMode.LIGHT -> Colors.Black
-                ColorMode.DARK -> Colors.White
-              }
+    Row {
+        Div(SubheadlineTextStyle.toAttrs()) {
+            SpanText(
+                text = sectionTitleText,
+                modifier =
+                    SectionTitleStyle
+                        .toModifier()
+                        .align(Alignment.Bottom)
+                        .color(
+                            when (ColorMode.current) {
+                                ColorMode.LIGHT -> Colors.Black
+                                ColorMode.DARK -> Colors.White
+                            },
+                        ).fontWeight(FontWeight.Bold),
             )
-            .fontWeight(FontWeight.Bold),
-      )
+        }
+        Image(src = Res.Images.PORTAL_STAR, modifier = Modifier.align(Alignment.Top).size(22.px))
     }
-    Image(src = Res.Images.PORTAL_STAR, modifier = Modifier.align(Alignment.Top).size(22.px))
-  }
 }

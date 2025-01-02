@@ -18,25 +18,25 @@ import xyz.malefic.utils.Res
 
 @Composable
 fun About() {
-  Column(
-    modifier = AboutStyle.toModifier().id("about"),
-    verticalArrangement = Arrangement.Center,
-    horizontalAlignment = Alignment.CenterHorizontally,
-  ) {
-    SectionTitle(Constants.ABOUT_ME_TITLE)
+    Column(
+        modifier = AboutStyle.toModifier().id("about"),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally,
+    ) {
+        SectionTitle(Constants.ABOUT_ME_TITLE)
 
-    SpanText(
-      text = Constants.ABOUT_ME_TEXT,
-      modifier =
-        SectionDescriptionStyle.toModifier()
-          .textAlign(TextAlign.Center)
-          .color(
-            when (ColorMode.current) {
-              ColorMode.LIGHT -> Colors.Gray
-              ColorMode.DARK -> Colors.DimGray
-            }
-          )
-          .fontFamily(Res.Fonts.DM_SANS),
-    )
-  }
+        SpanText(
+            text = Constants.ABOUT_ME_TEXT,
+            modifier =
+                SectionDescriptionStyle
+                    .toModifier()
+                    .textAlign(TextAlign.Center)
+                    .color(
+                        when (ColorMode.current) {
+                            ColorMode.LIGHT -> Colors.Gray
+                            ColorMode.DARK -> Colors.DimGray
+                        },
+                    ).fontFamily(Res.Fonts.DM_SANS),
+        )
+    }
 }

@@ -16,36 +16,44 @@ import xyz.malefic.CircleButtonVariant
 import xyz.malefic.UncoloredButtonVariant
 
 @Composable
-fun IconButton(onClick: () -> Unit, content: @Composable () -> Unit) {
-  Button(
-    onClick = { onClick() },
-    Modifier.setVariable(
-      ButtonVars.FontSize,
-      1.em,
-    ), // Make button icon size relative to parent container font size
-    variant = CircleButtonVariant.then(UncoloredButtonVariant),
-  ) {
-    content()
-  }
+fun IconButton(
+    onClick: () -> Unit,
+    content: @Composable () -> Unit,
+) {
+    Button(
+        onClick = { onClick() },
+        Modifier.setVariable(
+            ButtonVars.FontSize,
+            1.em,
+        ), // Make button icon size relative to parent container font size
+        variant = CircleButtonVariant.then(UncoloredButtonVariant),
+    ) {
+        content()
+    }
 }
 
-val FooterIconsStyle = CssStyle {
-  hover {
-    Modifier.scale(1.1) // TODO: Try changing color on hover
-  }
-}
+val FooterIconsStyle =
+    CssStyle {
+        hover {
+            Modifier.scale(1.1) // TODO: Try changing color on hover
+        }
+    }
 
 @Composable
-fun IconButtonNoHover(onClick: () -> Unit, content: @Composable () -> Unit) {
-  Button(
-    onClick = { onClick() },
-    FooterIconsStyle.toModifier()
-      .setVariable(ButtonVars.FontSize, 1.em)
-      .backgroundColor(
-        Colors.Transparent
-      ), // Make button icon size relative to parent container font size
-    variant = CircleButtonVariant.then(UncoloredButtonVariant),
-  ) {
-    content()
-  }
+fun IconButtonNoHover(
+    onClick: () -> Unit,
+    content: @Composable () -> Unit,
+) {
+    Button(
+        onClick = { onClick() },
+        FooterIconsStyle
+            .toModifier()
+            .setVariable(ButtonVars.FontSize, 1.em)
+            .backgroundColor(
+                Colors.Transparent,
+            ), // Make button icon size relative to parent container font size
+        variant = CircleButtonVariant.then(UncoloredButtonVariant),
+    ) {
+        content()
+    }
 }

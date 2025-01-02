@@ -27,58 +27,58 @@ import xyz.malefic.utils.Res
 
 @Composable
 fun SkillsAndTools() {
-  Column(
-    modifier = ExperienceStyle.toModifier().id("skills_and_tools"),
-    verticalArrangement = Arrangement.Center,
-    horizontalAlignment = Alignment.CenterHorizontally,
-  ) {
-    SectionTitle(Constants.SKILLS_AND_TOOLS_TITLE)
-
-    SimpleGrid(
-      modifier = Modifier.fillMaxWidth().margin(top = 2.cssRem),
-      numColumns = numColumns(base = 1, sm = 2),
+    Column(
+        modifier = ExperienceStyle.toModifier().id("skills_and_tools"),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-      GlassBox(modifier = Modifier.margin(all = 2.cssRem)) {
-        SimpleGrid(
-          modifier = Modifier.padding(all = 1.cssRem),
-          numColumns = numColumns(base = 2, sm = 2, md = 3, lg = 4),
-        ) {
-          Res.Images.apply {
-            IconGlassBoxes(
-              KOTLIN_LOGO.withMod(Modifier.styleModifier { mixBlendMode(MixBlendMode.Normal) }),
-              JAVA_LOGO.src,
-              HTML_LOGO.src,
-              CSS_LOGO.src,
-              JAVASCRIPT_LOGO.src,
-              EXPRESS_LOGO.src,
-              NODEJS_LOGO.src,
-              MARKDOWN_LOGO.src,
-            )
-          }
-        }
-      }
+        SectionTitle(Constants.SKILLS_AND_TOOLS_TITLE)
 
-      GlassBox(modifier = Modifier.margin(all = 2.cssRem)) {
         SimpleGrid(
-          modifier = Modifier.padding(all = 1.cssRem),
-          numColumns = numColumns(base = 2, sm = 2, md = 3, lg = 4),
+            modifier = Modifier.fillMaxWidth().margin(top = 2.cssRem),
+            numColumns = numColumns(base = 1, sm = 2),
         ) {
-          Res.Images.apply {
-            IconGlassBoxes(
-              ANDROID_LOGO.src,
-              INTELLIJ_LOGO.src,
-              FIGMA_LOGO.src,
-              FIREBASE_LOGO.src,
-              MONGODB_LOGO.src,
-              VSCODE_LOGO.src,
-              GIT_LOGO.src,
-              POSTMAN_LOGO.src,
-            )
-          }
+            GlassBox(modifier = Modifier.margin(all = 2.cssRem)) {
+                SimpleGrid(
+                    modifier = Modifier.padding(all = 1.cssRem),
+                    numColumns = numColumns(base = 2, sm = 2, md = 3, lg = 4),
+                ) {
+                    Res.Images.apply {
+                        IconGlassBoxes(
+                            KOTLIN_LOGO.withMod(Modifier.styleModifier { mixBlendMode(MixBlendMode.Normal) }),
+                            JAVA_LOGO.src,
+                            HTML_LOGO.src,
+                            CSS_LOGO.src,
+                            JAVASCRIPT_LOGO.src,
+                            EXPRESS_LOGO.src,
+                            NODEJS_LOGO.src,
+                            MARKDOWN_LOGO.src,
+                        )
+                    }
+                }
+            }
+
+            GlassBox(modifier = Modifier.margin(all = 2.cssRem)) {
+                SimpleGrid(
+                    modifier = Modifier.padding(all = 1.cssRem),
+                    numColumns = numColumns(base = 2, sm = 2, md = 3, lg = 4),
+                ) {
+                    Res.Images.apply {
+                        IconGlassBoxes(
+                            ANDROID_LOGO.src,
+                            INTELLIJ_LOGO.src,
+                            FIGMA_LOGO.src,
+                            FIREBASE_LOGO.src,
+                            MONGODB_LOGO.src,
+                            VSCODE_LOGO.src,
+                            GIT_LOGO.src,
+                            POSTMAN_LOGO.src,
+                        )
+                    }
+                }
+            }
         }
-      }
     }
-  }
 }
 
 /**
@@ -89,10 +89,13 @@ fun SkillsAndTools() {
  *   and appearance.
  */
 @Composable
-fun IconGlassBox(src: String, modifier: Modifier = Modifier) {
-  GlassBox(modifier = Modifier.size(65.px).margin(all = 0.6.cssRem)) {
-    Image(src = src, modifier = Modifier.size(42.px).then(modifier))
-  }
+fun IconGlassBox(
+    src: String,
+    modifier: Modifier = Modifier,
+) {
+    GlassBox(modifier = Modifier.size(65.px).margin(all = 0.6.cssRem)) {
+        Image(src = src, modifier = Modifier.size(42.px).then(modifier))
+    }
 }
 
 /**
@@ -102,16 +105,16 @@ fun IconGlassBox(src: String, modifier: Modifier = Modifier) {
  */
 @Composable
 fun IconGlassBoxes(vararg iconSources: IconSource) {
-  iconSources.forEach { iconSource ->
-    when (iconSource) {
-      is IconSource.Single -> {
-        IconGlassBox(iconSource.string)
-      }
-      is IconSource.WithModifier -> {
-        IconGlassBox(iconSource.string, iconSource.modifier)
-      }
+    iconSources.forEach { iconSource ->
+        when (iconSource) {
+            is IconSource.Single -> {
+                IconGlassBox(iconSource.string)
+            }
+            is IconSource.WithModifier -> {
+                IconGlassBox(iconSource.string, iconSource.modifier)
+            }
+        }
     }
-  }
 }
 
 /**
@@ -123,9 +126,14 @@ fun IconGlassBoxes(vararg iconSources: IconSource) {
  *   behavior.
  */
 sealed class IconSource {
-  data class Single(val string: String) : IconSource()
+    data class Single(
+        val string: String,
+    ) : IconSource()
 
-  data class WithModifier(val string: String, val modifier: Modifier) : IconSource()
+    data class WithModifier(
+        val string: String,
+        val modifier: Modifier,
+    ) : IconSource()
 }
 
 /**
@@ -135,7 +143,7 @@ sealed class IconSource {
  * @receiver The string representing the icon source URL or path.
  */
 val String.src: IconSource
-  get() = IconSource.Single(this)
+    get() = IconSource.Single(this)
 
 /**
  * Converts a string into an IconSource with an associated modifier.
@@ -144,6 +152,4 @@ val String.src: IconSource
  * @return An [IconSource.WithModifier] containing the string and the modifier.
  * @receiver The string representing the icon source URL or path.
  */
-fun String.withMod(modifier: Modifier): IconSource {
-  return IconSource.WithModifier(this, modifier)
-}
+fun String.withMod(modifier: Modifier): IconSource = IconSource.WithModifier(this, modifier)

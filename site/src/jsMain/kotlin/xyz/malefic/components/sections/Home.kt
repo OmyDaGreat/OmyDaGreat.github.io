@@ -36,70 +36,71 @@ import xyz.malefic.utils.Res
 
 @Composable
 fun Home() {
-  Box(
-    modifier =
-      HeroSectionStyle.toModifier()
-        .animation(
-          HeroContainerKeyFrames.toAnimation(
-            duration = 1.s,
-            timingFunction = AnimationTimingFunction.EaseInOut,
-          )
-        ),
-    contentAlignment = Alignment.CenterStart,
-  ) {
-    Column(horizontalAlignment = Alignment.Start) {
-      SpanText(
-        text = Constants.HELLO_IM,
+    Box(
         modifier =
-          HelloImStyle.toModifier()
-            .color(
-              when (ColorMode.current) {
-                ColorMode.LIGHT -> Colors.Gray
-                ColorMode.DARK -> Colors.DimGray
-              }
+            HeroSectionStyle
+                .toModifier()
+                .animation(
+                    HeroContainerKeyFrames.toAnimation(
+                        duration = 1.s,
+                        timingFunction = AnimationTimingFunction.EaseInOut,
+                    ),
+                ),
+        contentAlignment = Alignment.CenterStart,
+    ) {
+        Column(horizontalAlignment = Alignment.Start) {
+            SpanText(
+                text = Constants.HELLO_IM,
+                modifier =
+                    HelloImStyle
+                        .toModifier()
+                        .color(
+                            when (ColorMode.current) {
+                                ColorMode.LIGHT -> Colors.Gray
+                                ColorMode.DARK -> Colors.DimGray
+                            },
+                        ).fontWeight(FontWeight.Bold),
             )
-            .fontWeight(FontWeight.Bold),
-      )
-      SpanText(
-        text = Constants.OM_GUPTA,
-        modifier =
-          UserNameStyle.toModifier()
-            .color(
-              when (ColorMode.current) {
-                ColorMode.LIGHT -> Colors.Black
-                ColorMode.DARK -> Colors.White
-              }
+            SpanText(
+                text = Constants.OM_GUPTA,
+                modifier =
+                    UserNameStyle
+                        .toModifier()
+                        .color(
+                            when (ColorMode.current) {
+                                ColorMode.LIGHT -> Colors.Black
+                                ColorMode.DARK -> Colors.White
+                            },
+                        ).fontWeight(FontWeight.Bold),
             )
-            .fontWeight(FontWeight.Bold),
-      )
 
-      Div(SubheadlineTextStyle.toModifier().margin(top = 20.px).toAttrs()) {
-        SpanText(
-          text = Constants.AND_ITS_NICE_TO_MEET_YOU,
-          modifier =
-            UsersMessageStyle.toModifier()
-              .color(
-                when (ColorMode.current) {
-                  ColorMode.LIGHT -> Colors.Gray
-                  ColorMode.DARK -> Colors.DimGray
+            Div(SubheadlineTextStyle.toModifier().margin(top = 20.px).toAttrs()) {
+                SpanText(
+                    text = Constants.AND_ITS_NICE_TO_MEET_YOU,
+                    modifier =
+                        UsersMessageStyle
+                            .toModifier()
+                            .color(
+                                when (ColorMode.current) {
+                                    ColorMode.LIGHT -> Colors.Gray
+                                    ColorMode.DARK -> Colors.DimGray
+                                },
+                            ).fontFamily(Res.Fonts.DM_SANS),
+                )
+            }
+
+            val ctx = rememberPageContext()
+
+            Div(HeadlineTextStyle.toAttrs()) {
+                Button(
+                    onClick = { ctx.router.navigateTo(Constants.RESUME_URL) },
+                    colorScheme = CustomColorSchemes.BlackAndWhite,
+                    size = ButtonSize.MD,
+                    modifier = ButtonStyle.toModifier().width(150.percent).margin(top = 70.px),
+                ) {
+                    SpanText(text = Constants.RESUME, modifier = Modifier.fontFamily(Res.Fonts.TAURI))
                 }
-              )
-              .fontFamily(Res.Fonts.DM_SANS),
-        )
-      }
-
-      val ctx = rememberPageContext()
-
-      Div(HeadlineTextStyle.toAttrs()) {
-        Button(
-          onClick = { ctx.router.navigateTo(Constants.RESUME_URL) },
-          colorScheme = CustomColorSchemes.BlackAndWhite,
-          size = ButtonSize.MD,
-          modifier = ButtonStyle.toModifier().width(150.percent).margin(top = 70.px),
-        ) {
-          SpanText(text = Constants.RESUME, modifier = Modifier.fontFamily(Res.Fonts.Tauri))
+            }
         }
-      }
     }
-  }
 }

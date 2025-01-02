@@ -10,10 +10,11 @@ import org.jetbrains.compose.web.css.cssRem
 import org.jetbrains.compose.web.css.percent
 import org.jetbrains.compose.web.css.vh
 
-val AboutStyle = CssStyle {
-  base { Modifier.width(100.percent).fontSize(3.cssRem).height(100.vh) }
-  Breakpoint.ZERO { Modifier.width(100.percent).fontSize(2.5.cssRem).height(50.vh) }
-  Breakpoint.SM { Modifier.width(100.percent).fontSize(2.5.cssRem).height(50.vh) }
-  Breakpoint.MD { Modifier.width(100.percent).fontSize(2.75.cssRem).height(85.vh) }
-  Breakpoint.LG { Modifier.width(100.percent).fontSize(3.cssRem).height(100.vh) }
-}
+val AboutStyle =
+    CssStyle {
+        base { Modifier.width(100.percent).fontSize(3.cssRem).height(100.vh) }
+        Breakpoint.ZERO { Modifier.width(100.percent).fontSize(2.5.cssRem).height(50.vh) }
+        Breakpoint.SM { Modifier.width(100.percent).fontSize(2.5.cssRem).height(50.vh) }
+        Breakpoint.MD { Modifier.width(100.percent).fontSize(2.75.cssRem).height(85.vh) }
+        Breakpoint.LG { Modifier.width(100.percent).fontSize(3.cssRem).height(100.vh) }
+    }

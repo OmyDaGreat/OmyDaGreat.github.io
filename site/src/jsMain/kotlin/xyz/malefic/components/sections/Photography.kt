@@ -19,20 +19,20 @@ import xyz.malefic.utils.getAllPhotographs
 
 @Composable
 fun Photography() {
-  Column(
-    modifier = ExperienceStyle.toModifier().id("photography"),
-    verticalArrangement = Arrangement.Center,
-    horizontalAlignment = Alignment.CenterHorizontally,
-  ) {
-    SectionTitle(Constants.PHOTOGRAPH_TITLE)
-
-    SimpleGrid(
-      modifier = Modifier.margin(top = 30.px),
-      numColumns = numColumns(base = 1, sm = 2, md = 4, lg = 6),
+    Column(
+        modifier = ExperienceStyle.toModifier().id("photography"),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-      val allPhotographs = getAllPhotographs()
+        SectionTitle(Constants.PHOTOGRAPH_TITLE)
 
-      repeat(allPhotographs.size) { PhotographImage(src = allPhotographs[it]) }
+        SimpleGrid(
+            modifier = Modifier.margin(top = 30.px),
+            numColumns = numColumns(base = 1, sm = 2, md = 4, lg = 6),
+        ) {
+            val allPhotographs = getAllPhotographs()
+
+            repeat(allPhotographs.size) { PhotographImage(src = allPhotographs[it]) }
+        }
     }
-  }
 }

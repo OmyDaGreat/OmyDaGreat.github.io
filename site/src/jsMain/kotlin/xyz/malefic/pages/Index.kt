@@ -12,23 +12,23 @@ import xyz.malefic.utils.Res
 @Page
 @Composable
 fun HomePage() {
-  PageLayout("Home") {
-    Row(Modifier.fillMaxWidth().fontFamily(Res.Fonts.Space_Grotesk).id("home")) {
-      Box {
-        Column {
-          Home()
+    PageLayout("Home") {
+        Row(Modifier.fillMaxWidth().fontFamily(Res.Fonts.SPACE_GROTESK).id("home")) {
+            Box {
+                Column {
+                    Home()
 
-          About()
+                    About()
 
-          Experience()
+                    Experience()
 
-          SkillsAndTools()
+                    SkillsAndTools()
 
-          Photography()
+                    Photography()
 
-          Projects()
+                    Projects()
+                }
+            }
         }
-      }
     }
-  }
 }

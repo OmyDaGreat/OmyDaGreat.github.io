@@ -43,131 +43,136 @@ import xyz.malefic.utils.Res
 val FooterStyle = CssStyle.base { Modifier.padding(topBottom = 1.5.cssRem, leftRight = 10.percent) }
 
 @Composable
-fun Footer(breakpoint: Breakpoint, modifier: Modifier = Modifier) {
+fun Footer(
+    breakpoint: Breakpoint,
+    modifier: Modifier = Modifier,
+) {
+    val footerColor =
+        when (ColorMode.current) {
+            ColorMode.LIGHT -> Res.Colors.FOOTER_COLOR_LIGHT
+            ColorMode.DARK -> Res.Colors.FOOTER_COLOR_DARK
+        }
 
-  val footerColor =
-    when (ColorMode.current) {
-      ColorMode.LIGHT -> Res.Colors.FOOTER_COLOR_LIGHT
-      ColorMode.DARK -> Res.Colors.FOOTER_COLOR_DARK
-    }
+    var isHorizontal by remember { mutableStateOf(true) }
 
-  var isHorizontal by remember { mutableStateOf(true) }
+    isHorizontal = breakpoint >= Breakpoint.MD
 
-  isHorizontal = breakpoint >= Breakpoint.MD
+    val footerTextAlignment = if (isHorizontal) TextAlign.Start else TextAlign.Center
+    val footerColumnAlignment = if (isHorizontal) Alignment.Start else Alignment.CenterHorizontally
 
-  val footerTextAlignment = if (isHorizontal) TextAlign.Start else TextAlign.Center
-  val footerColumnAlignment = if (isHorizontal) Alignment.Start else Alignment.CenterHorizontally
-
-  FooterContent(breakpoint, footerTextAlignment, footerColumnAlignment, footerColor, modifier)
+    FooterContent(breakpoint, footerTextAlignment, footerColumnAlignment, footerColor, modifier)
 }
 
 @Composable
 fun EmailButton(ctx: PageContext) {
-  Button(
-    onClick = { ctx.router.navigateTo(Constants.MAIL_TO) },
-    colorScheme = CustomColorSchemes.BlackAndWhite,
-    size = ButtonSize.MD,
-    modifier = ButtonStyle.toModifier().margin(right = 20.px),
-  ) {
-    SpanText(text = "Email", modifier = Modifier.fontFamily(Res.Fonts.DM_SANS))
-  }
+    Button(
+        onClick = { ctx.router.navigateTo(Constants.MAIL_TO) },
+        colorScheme = CustomColorSchemes.BlackAndWhite,
+        size = ButtonSize.MD,
+        modifier = ButtonStyle.toModifier().margin(right = 20.px),
+    ) {
+        SpanText(text = "Email", modifier = Modifier.fontFamily(Res.Fonts.DM_SANS))
+    }
 }
 
 @Composable
 fun ResumeButton() {
-  Link(
-    path = Constants.RESUME_URL,
-    text = "Resume.",
-    modifier =
-      Modifier.fontFamily(Res.Fonts.DM_SANS)
-        .color(
-          when (ColorMode.current) {
-            ColorMode.LIGHT -> Colors.Black
-            ColorMode.DARK -> Colors.White
-          }
-        ),
-  )
+    Link(
+        path = Constants.RESUME_URL,
+        text = "Resume.",
+        modifier =
+            Modifier
+                .fontFamily(Res.Fonts.DM_SANS)
+                .color(
+                    when (ColorMode.current) {
+                        ColorMode.LIGHT -> Colors.Black
+                        ColorMode.DARK -> Colors.White
+                    },
+                ),
+    )
 }
 
 @Composable
 fun EmailAndResume(ctx: PageContext) {
-  Row(verticalAlignment = Alignment.CenterVertically) {
-    EmailButton(ctx)
-    ResumeButton()
-  }
+    Row(verticalAlignment = Alignment.CenterVertically) {
+        EmailButton(ctx)
+        ResumeButton()
+    }
 }
 
 @Composable
 fun FooterContent(
-  breakpoint: Breakpoint,
-  footerTextAlignment: TextAlign,
-  footerColumnAlignment: Alignment.Horizontal,
-  footerColor: Color.Rgb,
-  modifier: Modifier,
+    breakpoint: Breakpoint,
+    footerTextAlignment: TextAlign,
+    footerColumnAlignment: Alignment.Horizontal,
+    footerColor: Color.Rgb,
+    modifier: Modifier,
 ) {
-
-  Box(
-    FooterStyle.toModifier()
-      .backgroundColor(footerColor)
-      .fontFamily(Res.Fonts.DM_SANS)
-      .then(modifier),
-    contentAlignment = Alignment.Center,
-  ) {
-    Column(
-      modifier = Modifier.fillMaxWidth().margin(top = 2.cssRem),
-      horizontalAlignment = footerColumnAlignment,
+    Box(
+        FooterStyle
+            .toModifier()
+            .backgroundColor(footerColor)
+            .fontFamily(Res.Fonts.DM_SANS)
+            .then(modifier),
+        contentAlignment = Alignment.Center,
     ) {
-      SpanText(
-        text = "Feel free to reach out to me via mail or any of the listed mediums",
-        modifier =
-          Modifier.fillMaxWidth()
-            .color(
-              when (ColorMode.current) {
-                ColorMode.LIGHT -> Colors.Gray
-                ColorMode.DARK -> Colors.DimGray
-              }
-            )
-            .textAlign(footerTextAlignment)
-            .fontSize(FontSize.Small),
-      )
-
-      val ctx = rememberPageContext()
-
-      if (breakpoint >= Breakpoint.MD) {
-
-        Row(
-          modifier = Modifier.fillMaxWidth().padding(topBottom = 2.cssRem),
-          horizontalArrangement = Arrangement.Start,
-          verticalAlignment = Alignment.CenterVertically,
-        ) {
-          EmailAndResume(ctx)
-
-          Spacer()
-
-          NetworkingIconButtons(ctx)
-        }
-      } else {
         Column(
-          modifier = Modifier.fillMaxWidth().padding(topBottom = 2.cssRem),
-          horizontalAlignment = Alignment.CenterHorizontally,
-          verticalArrangement = Arrangement.Center,
+            modifier = Modifier.fillMaxWidth().margin(top = 2.cssRem),
+            horizontalAlignment = footerColumnAlignment,
         ) {
-          EmailAndResume(ctx)
+            SpanText(
+                text = "Feel free to reach out to me via mail or any of the listed mediums",
+                modifier =
+                    Modifier
+                        .fillMaxWidth()
+                        .color(
+                            when (ColorMode.current) {
+                                ColorMode.LIGHT -> Colors.Gray
+                                ColorMode.DARK -> Colors.DimGray
+                            },
+                        ).textAlign(footerTextAlignment)
+                        .fontSize(FontSize.Small),
+            )
 
-          Spacer()
+            val ctx = rememberPageContext()
 
-          NetworkingIconButtons(ctx, Modifier.margin(top = 2.cssRem))
+            if (breakpoint >= Breakpoint.MD) {
+                Row(
+                    modifier = Modifier.fillMaxWidth().padding(topBottom = 2.cssRem),
+                    horizontalArrangement = Arrangement.Start,
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
+                    EmailAndResume(ctx)
+
+                    Spacer()
+
+                    NetworkingIconButtons(ctx)
+                }
+            } else {
+                Column(
+                    modifier = Modifier.fillMaxWidth().padding(topBottom = 2.cssRem),
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    verticalArrangement = Arrangement.Center,
+                ) {
+                    EmailAndResume(ctx)
+
+                    Spacer()
+
+                    NetworkingIconButtons(ctx, Modifier.margin(top = 2.cssRem))
+                }
+            }
         }
-      }
     }
-  }
 }
 
 @Composable
-fun NetworkingIconButtons(ctx: PageContext, modifier: Modifier = Modifier) {
-  SimpleGrid(modifier = modifier, numColumns = numColumns(base = 5)) {
-    IconButtonNoHover(onClick = { ctx.router.navigateTo(Constants.GITHUB_URL) }) {
-      AppearanceAwareImage(src = Res.Images.GITHUB)
+fun NetworkingIconButtons(
+    ctx: PageContext,
+    modifier: Modifier = Modifier,
+) {
+    SimpleGrid(modifier = modifier, numColumns = numColumns(base = 5)) {
+        IconButtonNoHover(onClick = { ctx.router.navigateTo(Constants.GITHUB_URL) }) {
+            AppearanceAwareImage(src = Res.Images.GITHUB)
+        }
     }
-  }
 }

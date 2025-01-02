@@ -10,10 +10,11 @@ import org.jetbrains.compose.web.css.percent
 import org.jetbrains.compose.web.css.px
 import org.jetbrains.compose.web.css.vh
 
-val ProjectStyle = CssStyle {
-  base { Modifier.width(100.percent).minHeight(100.vh) }
-  Breakpoint.ZERO { Modifier.width(100.percent).minHeight(100.vh).margin(top = 100.px) }
-  Breakpoint.SM { Modifier.width(100.percent).minHeight(100.vh).margin(top = 50.px) }
-  Breakpoint.MD { Modifier.width(100.percent).minHeight(100.vh).margin(top = 0.px) }
-  Breakpoint.LG { Modifier.width(100.percent).minHeight(100.vh) }
-}
+val ProjectStyle =
+    CssStyle {
+        base { Modifier.width(100.percent).minHeight(100.vh) }
+        Breakpoint.ZERO { Modifier.width(100.percent).minHeight(100.vh).margin(top = 100.px) }
+        Breakpoint.SM { Modifier.width(100.percent).minHeight(100.vh).margin(top = 50.px) }
+        Breakpoint.MD { Modifier.width(100.percent).minHeight(100.vh).margin(top = 0.px) }
+        Breakpoint.LG { Modifier.width(100.percent).minHeight(100.vh) }
+    }

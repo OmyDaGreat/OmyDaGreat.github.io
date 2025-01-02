@@ -14,15 +14,22 @@ import org.jetbrains.compose.web.css.DisplayStyle
 import org.jetbrains.compose.web.css.px
 
 @Composable
-fun PhotographImage(modifier: Modifier = Modifier, src: String) {
-  Box(
-    modifier = Modifier.fillMaxWidth().then(modifier).padding(all = 6.px),
-    contentAlignment = Alignment.Center,
-  ) {
-    Image(
-      src = src,
-      modifier =
-        Modifier.fillMaxWidth().borderRadius(10.px).display(DisplayStyle.Block).fillMaxHeight(),
-    )
-  }
+fun PhotographImage(
+    modifier: Modifier = Modifier,
+    src: String,
+) {
+    Box(
+        modifier = Modifier.fillMaxWidth().then(modifier).padding(all = 6.px),
+        contentAlignment = Alignment.Center,
+    ) {
+        Image(
+            src = src,
+            modifier =
+                Modifier
+                    .fillMaxWidth()
+                    .borderRadius(10.px)
+                    .display(DisplayStyle.Block)
+                    .fillMaxHeight(),
+        )
+    }
 }
