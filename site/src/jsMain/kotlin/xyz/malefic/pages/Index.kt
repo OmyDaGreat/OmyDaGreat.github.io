@@ -20,13 +20,13 @@ fun HomePage() {
 
                     About()
 
-                    Experience()
-
                     SkillsAndTools()
 
                     Photography()
 
                     Projects()
+
+                    MaleficCompose()
                 }
             }
         }

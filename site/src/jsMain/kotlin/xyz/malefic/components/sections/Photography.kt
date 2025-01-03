@@ -14,7 +14,6 @@ import org.jetbrains.compose.web.css.px
 import xyz.malefic.components.styles.ExperienceStyle
 import xyz.malefic.components.widgets.PhotographImage
 import xyz.malefic.components.widgets.SectionTitle
-import xyz.malefic.utils.Constants
 import xyz.malefic.utils.getAllPhotographs
 
 @Composable
@@ -24,7 +23,7 @@ fun Photography() {
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        SectionTitle(Constants.PHOTOGRAPH_TITLE)
+        SectionTitle("Sometimes I love to click.")
 
         SimpleGrid(
             modifier = Modifier.margin(top = 30.px),

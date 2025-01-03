@@ -22,7 +22,6 @@ import org.jetbrains.compose.web.css.px
 import xyz.malefic.components.styles.ExperienceStyle
 import xyz.malefic.components.widgets.GlassBox
 import xyz.malefic.components.widgets.SectionTitle
-import xyz.malefic.utils.Constants
 import xyz.malefic.utils.Res
 
 @Composable
@@ -32,7 +31,7 @@ fun SkillsAndTools() {
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        SectionTitle(Constants.SKILLS_AND_TOOLS_TITLE)
+        SectionTitle("Skills & Tools.")
 
         SimpleGrid(
             modifier = Modifier.fillMaxWidth().margin(top = 2.cssRem),

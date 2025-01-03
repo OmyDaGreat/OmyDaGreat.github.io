@@ -22,10 +22,10 @@ module.exports = {
     },
     {value: 'WIP', name: 'WIP:      Work in progress'},
     {value: 'revert', name: 'revert:   Revert to a prior commit'},
-    {value: 'update', name: 'update:      Update external tools or libraries'},
+    {value: 'update', name: 'update:   Update external tools or libraries'},
   ],
 
-  scopes: [{name: 'components'}, {name: 'index'}, {name: 'utils'}, {name: 'constants'}],
+  scopes: [{name: 'components'}, {name: 'index'}, {name: 'utils'}, {name: 'md'}],
 
   usePreparedCommit: false, // to re-use commit from ./.git/COMMIT_EDITMSG
   allowTicketNumber: false,

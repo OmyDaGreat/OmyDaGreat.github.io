@@ -1,36 +1,22 @@
 package xyz.malefic.utils
 
-import xyz.malefic.components.model.WorkExperience
-
 fun getAllProjects() =
     listOf(
-        Pair(Res.Images.PROJECT_READBUD, Constants.PROJECT_READBUD_URL),
-        Pair(Res.Images.PROJECT_JUSTAP, Constants.PROJECT_JUSTAP_URL),
-        Pair(Res.Images.PROJECT_PASSGENIE, Constants.PROJECT_PASSGENIE_URL),
-        Pair(Res.Images.PROJECT_MEDIFY, Constants.PROJECT_MEDIFY_URL),
-        Pair(Res.Images.PROJECT_PRESIN, Constants.PROJECT_PRESIN_URL),
+        Pair(Res.Images.PROJECT_READBUD, Links.PROJECT_READBUD_URL),
+        Pair(Res.Images.PROJECT_JUSTAP, Links.PROJECT_JUSTAP_URL),
+        Pair(Res.Images.PROJECT_PASSGENIE, Links.PROJECT_PASSGENIE_URL),
+        Pair(Res.Images.PROJECT_MEDIFY, Links.PROJECT_MEDIFY_URL),
+        Pair(Res.Images.PROJECT_PRESIN, Links.PROJECT_PRESIN_URL),
     )
 
-fun getAllWorkExperience() =
+fun getAllCompose() =
     listOf(
-        WorkExperience(
-            sequenceNumber = "01",
-            role = "Software Developer Intern",
-            organization = "IONAGE",
-            duration = "July 23 - Present",
-        ),
-        WorkExperience(
-            sequenceNumber = "02",
-            role = "Software Developer Intern",
-            organization = "Humara Nagar",
-            duration = "Jan 23 - Mar 23",
-        ),
-        WorkExperience(
-            sequenceNumber = "03",
-            role = "Software Developer Intern",
-            organization = "Edvora",
-            duration = "Oct 22 - Nov 22",
-        ),
+        Pair(Res.Images.COMPOSE_CDT, Links.COMPOSE_CDT_URL),
+        Pair(Res.Images.COMPOSE_NAV, Links.COMPOSE_NAV_URL),
+        Pair(Res.Images.COMPOSE_COMPS, Links.COMPOSE_COMPS_URL),
+        Pair(Res.Images.COMPOSE_PREFS, Links.COMPOSE_PREFS_URL),
+        Pair(Res.Images.COMPOSE_THEMING, Links.COMPOSE_THEMING_URL),
+        Pair(Res.Images.COMPOSE_ENGINE, Links.COMPOSE_ENGINE_URL),
     )
 
 fun getAllPhotographs() =

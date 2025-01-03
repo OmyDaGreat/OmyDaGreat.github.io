@@ -30,8 +30,8 @@ import org.jetbrains.compose.web.dom.Div
 import xyz.malefic.HeadlineTextStyle
 import xyz.malefic.SubheadlineTextStyle
 import xyz.malefic.components.styles.*
-import xyz.malefic.utils.Constants
 import xyz.malefic.utils.CustomColorSchemes
+import xyz.malefic.utils.Links
 import xyz.malefic.utils.Res
 
 @Composable
@@ -50,7 +50,7 @@ fun Home() {
     ) {
         Column(horizontalAlignment = Alignment.Start) {
             SpanText(
-                text = Constants.HELLO_IM,
+                text = "Hi, I'm",
                 modifier =
                     HelloImStyle
                         .toModifier()
@@ -62,7 +62,7 @@ fun Home() {
                         ).fontWeight(FontWeight.Bold),
             )
             SpanText(
-                text = Constants.OM_GUPTA,
+                text = "Om Gupta",
                 modifier =
                     UserNameStyle
                         .toModifier()
@@ -76,7 +76,7 @@ fun Home() {
 
             Div(SubheadlineTextStyle.toModifier().margin(top = 20.px).toAttrs()) {
                 SpanText(
-                    text = Constants.AND_ITS_NICE_TO_MEET_YOU,
+                    text = "and it's nice to meet you!",
                     modifier =
                         UsersMessageStyle
                             .toModifier()
@@ -93,12 +93,12 @@ fun Home() {
 
             Div(HeadlineTextStyle.toAttrs()) {
                 Button(
-                    onClick = { ctx.router.navigateTo(Constants.RESUME_URL) },
+                    onClick = { ctx.router.navigateTo(Links.RESUME_URL) },
                     colorScheme = CustomColorSchemes.BlackAndWhite,
                     size = ButtonSize.MD,
                     modifier = ButtonStyle.toModifier().width(150.percent).margin(top = 70.px),
                 ) {
-                    SpanText(text = Constants.RESUME, modifier = Modifier.fontFamily(Res.Fonts.TAURI))
+                    SpanText(text = "Resume", modifier = Modifier.fontFamily(Res.Fonts.TAURI))
                 }
             }
         }

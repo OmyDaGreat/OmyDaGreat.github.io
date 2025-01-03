@@ -36,8 +36,8 @@ import org.jetbrains.compose.web.css.px
 import xyz.malefic.components.styles.ButtonStyle
 import xyz.malefic.components.widgets.AppearanceAwareImage
 import xyz.malefic.components.widgets.IconButtonNoHover
-import xyz.malefic.utils.Constants
 import xyz.malefic.utils.CustomColorSchemes
+import xyz.malefic.utils.Links
 import xyz.malefic.utils.Res
 
 val FooterStyle = CssStyle.base { Modifier.padding(topBottom = 1.5.cssRem, leftRight = 10.percent) }
@@ -66,7 +66,7 @@ fun Footer(
 @Composable
 fun EmailButton(ctx: PageContext) {
     Button(
-        onClick = { ctx.router.navigateTo(Constants.MAIL_TO) },
+        onClick = { ctx.router.navigateTo(Links.MAIL_TO) },
         colorScheme = CustomColorSchemes.BlackAndWhite,
         size = ButtonSize.MD,
         modifier = ButtonStyle.toModifier().margin(right = 20.px),
@@ -78,7 +78,7 @@ fun EmailButton(ctx: PageContext) {
 @Composable
 fun ResumeButton() {
     Link(
-        path = Constants.RESUME_URL,
+        path = Links.RESUME_URL,
         text = "Resume.",
         modifier =
             Modifier
@@ -171,7 +171,7 @@ fun NetworkingIconButtons(
     modifier: Modifier = Modifier,
 ) {
     SimpleGrid(modifier = modifier, numColumns = numColumns(base = 5)) {
-        IconButtonNoHover(onClick = { ctx.router.navigateTo(Constants.GITHUB_URL) }) {
+        IconButtonNoHover(onClick = { ctx.router.navigateTo(Links.GITHUB_URL) }) {
             AppearanceAwareImage(src = Res.Images.GITHUB)
         }
     }

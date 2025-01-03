@@ -1,6 +1,7 @@
 package xyz.malefic.components.sections
 
 import androidx.compose.runtime.*
+import com.varabyte.kobweb.browser.dom.ElementTarget
 import com.varabyte.kobweb.compose.css.functions.blur
 import com.varabyte.kobweb.compose.css.functions.clamp
 import com.varabyte.kobweb.compose.foundation.layout.Arrangement
@@ -21,6 +22,8 @@ import com.varabyte.kobweb.silk.components.navigation.UncoloredLinkVariant
 import com.varabyte.kobweb.silk.components.navigation.UndecoratedLinkVariant
 import com.varabyte.kobweb.silk.components.overlay.Overlay
 import com.varabyte.kobweb.silk.components.overlay.OverlayVars
+import com.varabyte.kobweb.silk.components.overlay.PopupPlacement
+import com.varabyte.kobweb.silk.components.overlay.Tooltip
 import com.varabyte.kobweb.silk.style.CssStyle
 import com.varabyte.kobweb.silk.style.animation.Keyframes
 import com.varabyte.kobweb.silk.style.animation.toAnimation
@@ -56,10 +59,10 @@ private fun NavLink(
 private fun MenuItems() {
     NavLink("#home", "Home")
     NavLink("#about", "About")
-    NavLink("#experience", "Experience")
-    //    NavLink("#skills_and_tools", "Skills & Tools")
-    //    NavLink("#photography", "Photography")
+    NavLink("#skills_and_tools", "Skills & Tools")
+    NavLink("#photography", "Photography")
     NavLink("#projects", "Projects")
+    NavLink("#maleficcompose", "MaleficCompose")
 }
 
 @Composable
@@ -68,8 +71,7 @@ private fun ColorModeButton() {
     IconButton(onClick = { colorMode = colorMode.opposite }) {
         if (colorMode.isLight) MoonIcon() else SunIcon()
     }
-    //    Tooltip(ElementTarget.PreviousSibling, "Toggle color mode", placement =
-    // PopupPlacement.BottomRight)
+    Tooltip(ElementTarget.PreviousSibling, "Toggle color mode", placement = PopupPlacement.BottomRight)
 }
 
 @Composable

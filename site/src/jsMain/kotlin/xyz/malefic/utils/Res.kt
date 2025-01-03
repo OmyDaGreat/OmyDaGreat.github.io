@@ -58,6 +58,14 @@ object Res {
         const val PROJECT_PASSGENIE = "images/Projects/Project_PassGenie.png"
         const val PROJECT_PRESIN = "images/Projects/Project_PresIN.png"
         const val PROJECT_READBUD = "images/Projects/Project_ReadBud.png"
+
+        // Compose
+        const val COMPOSE_CDT = "images/Compose/ComposeDesktopTemplate.png"
+        const val COMPOSE_NAV = "images/Compose/MaleficNavigation.png"
+        const val COMPOSE_COMPS = "images/Compose/MaleficComponents.png"
+        const val COMPOSE_PREFS = "images/Compose/MaleficPrefs.png"
+        const val COMPOSE_THEMING = "images/Compose/MaleficTheming.png"
+        const val COMPOSE_ENGINE = "images/Compose/MaleficEngine.png"
     }
 
     object Fonts {
@@ -71,6 +79,5 @@ object Res {
         val FOOTER_COLOR_DARK = Color.Companion.rgb(0x0D0D0D)
         val GLASS_BOX_BORDER_COLOR_LIGHT = Color.Companion.rgb(0xE9E9E9)
         val GLASS_BOX_BORDER_COLOR_DARK = Color.Companion.rgb(0x4E4E4E)
-        val DARK_GRAY_TEXT_COLOR = Color.Companion.rgb(0x7B7B7B)
     }
 }
