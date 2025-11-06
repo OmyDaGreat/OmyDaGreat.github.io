@@ -7,7 +7,6 @@ import com.varabyte.kobweb.compose.foundation.layout.Column
 import com.varabyte.kobweb.compose.foundation.layout.Row
 import com.varabyte.kobweb.compose.ui.Alignment
 import com.varabyte.kobweb.compose.ui.Modifier
-import com.varabyte.kobweb.compose.ui.graphics.Colors
 import com.varabyte.kobweb.compose.ui.modifiers.color
 import com.varabyte.kobweb.compose.ui.modifiers.fillMaxSize
 import com.varabyte.kobweb.compose.ui.modifiers.fillMaxWidth
@@ -23,6 +22,7 @@ import com.varabyte.kobweb.silk.theme.colors.ColorMode
 import org.jetbrains.compose.web.css.cssRem
 import org.jetbrains.compose.web.css.px
 import xyz.malefic.components.styles.ProjectStyle
+import xyz.malefic.theme.text
 import xyz.malefic.components.widgets.AppearanceAwareImage
 import xyz.malefic.components.widgets.RoundedImage
 import xyz.malefic.components.widgets.SectionTitle
@@ -64,12 +64,8 @@ fun Projects() {
                         modifier =
                             Modifier
                                 .fontFamily(Res.Fonts.DM_SANS)
-                                .color(
-                                    when (ColorMode.current) {
-                                        ColorMode.LIGHT -> Colors.Black
-                                        ColorMode.DARK -> Colors.White
-                                    },
-                                ).margin(right = 4.px),
+                                .color(ColorMode.current.text())
+                                .margin(right = 4.px),
                     )
                     AppearanceAwareImage(src = Res.Images.NAVIGATION_ARROW)
                 }

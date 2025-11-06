@@ -15,8 +15,7 @@ import com.varabyte.kobweb.compose.ui.modifiers.*
 import com.varabyte.kobweb.compose.ui.styleModifier
 import com.varabyte.kobweb.silk.theme.colors.ColorMode
 import org.jetbrains.compose.web.css.*
-import xyz.malefic.utils.Res.Colors.GLASS_BOX_BORDER_COLOR_DARK
-import xyz.malefic.utils.Res.Colors.GLASS_BOX_BORDER_COLOR_LIGHT
+import xyz.malefic.theme.ThemeColors
 
 @Composable
 fun GlassBox(
@@ -26,8 +25,8 @@ fun GlassBox(
     borderStyle: LineStyle = LineStyle.Solid,
     borderColor: CSSColorValue =
         when (ColorMode.current) {
-            ColorMode.LIGHT -> GLASS_BOX_BORDER_COLOR_LIGHT
-            ColorMode.DARK -> GLASS_BOX_BORDER_COLOR_DARK
+            ColorMode.LIGHT -> ThemeColors.Border.glassBoxLight
+            ColorMode.DARK -> ThemeColors.Border.glassBoxDark
         },
     gradientDirection: LinearGradient.Direction = LinearGradient.Direction.ToBottomRight,
     startColor: CSSColorValue = rgba(r = 255, g = 255, b = 255, a = 0),

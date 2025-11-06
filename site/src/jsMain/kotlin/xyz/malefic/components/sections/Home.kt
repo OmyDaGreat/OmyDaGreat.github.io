@@ -6,7 +6,6 @@ import com.varabyte.kobweb.compose.foundation.layout.Box
 import com.varabyte.kobweb.compose.foundation.layout.Column
 import com.varabyte.kobweb.compose.ui.Alignment
 import com.varabyte.kobweb.compose.ui.Modifier
-import com.varabyte.kobweb.compose.ui.graphics.Colors
 import com.varabyte.kobweb.compose.ui.modifiers.animation
 import com.varabyte.kobweb.compose.ui.modifiers.color
 import com.varabyte.kobweb.compose.ui.modifiers.fontFamily
@@ -30,6 +29,8 @@ import org.jetbrains.compose.web.dom.Div
 import xyz.malefic.HeadlineTextStyle
 import xyz.malefic.SubheadlineTextStyle
 import xyz.malefic.components.styles.*
+import xyz.malefic.theme.secondaryText
+import xyz.malefic.theme.text
 import xyz.malefic.utils.CustomColorSchemes
 import xyz.malefic.utils.Links
 import xyz.malefic.utils.Res
@@ -54,24 +55,16 @@ fun Home() {
                 modifier =
                     HelloImStyle
                         .toModifier()
-                        .color(
-                            when (ColorMode.current) {
-                                ColorMode.LIGHT -> Colors.Gray
-                                ColorMode.DARK -> Colors.DimGray
-                            },
-                        ).fontWeight(FontWeight.Bold),
+                        .color(ColorMode.current.secondaryText())
+                        .fontWeight(FontWeight.Bold),
             )
             SpanText(
                 text = "Om Gupta",
                 modifier =
                     UserNameStyle
                         .toModifier()
-                        .color(
-                            when (ColorMode.current) {
-                                ColorMode.LIGHT -> Colors.Black
-                                ColorMode.DARK -> Colors.White
-                            },
-                        ).fontWeight(FontWeight.Bold),
+                        .color(ColorMode.current.text())
+                        .fontWeight(FontWeight.Bold),
             )
 
             Div(SubheadlineTextStyle.toModifier().margin(top = 20.px).toAttrs()) {
@@ -80,12 +73,8 @@ fun Home() {
                     modifier =
                         UsersMessageStyle
                             .toModifier()
-                            .color(
-                                when (ColorMode.current) {
-                                    ColorMode.LIGHT -> Colors.Gray
-                                    ColorMode.DARK -> Colors.DimGray
-                                },
-                            ).fontFamily(Res.Fonts.DM_SANS),
+                            .color(ColorMode.current.secondaryText())
+                            .fontFamily(Res.Fonts.DM_SANS),
                 )
             }
 

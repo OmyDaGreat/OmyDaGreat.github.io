@@ -1,7 +1,5 @@
 package xyz.malefic.utils
 
-import com.varabyte.kobweb.compose.ui.graphics.Color
-
 object Res {
     object Images {
         const val BACKGROUND_CIRCLES = "images/background_circles.svg"
@@ -31,12 +29,9 @@ object Res {
         const val NODEJS_LOGO = "images/Skills/NodeJS.svg"
 
         // Socials
-        const val BEHANCE = "images/Socials/behance.svg"
         const val GITHUB = "images/Socials/github.svg"
         const val GITHUB_FILLED = "images/Socials/github-filled.svg"
         const val LINKEDIN = "images/Socials/linkedin.svg"
-        const val MEDIUM = "images/Socials/medium.svg"
-        const val TWITTER_X = "images/Socials/twitter-x.svg"
 
         // Photographs
         const val IMAGE_1 = "images/Photographs/Image 1.png"
@@ -72,12 +67,5 @@ object Res {
         const val SPACE_GROTESK = "Space Grotesk"
         const val TAURI = "Tauri"
         const val DM_SANS = "DM Sans"
-    }
-
-    object Colors {
-        val FOOTER_COLOR_LIGHT = Color.Companion.rgb(0xF1F1F1)
-        val FOOTER_COLOR_DARK = Color.Companion.rgb(0x0D0D0D)
-        val GLASS_BOX_BORDER_COLOR_LIGHT = Color.Companion.rgb(0xE9E9E9)
-        val GLASS_BOX_BORDER_COLOR_DARK = Color.Companion.rgb(0x4E4E4E)
     }
 }

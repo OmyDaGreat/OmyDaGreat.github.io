@@ -7,8 +7,8 @@ Kotfolio is a minimalistic and clean portfolio project built with [Kobweb](https
 ## [Try Kotfolio](https://kotfolio.onrender.com/)
 
 <p align="center">
-  <img alt="Kotlin" src="https://img.shields.io/badge/Kotlin-a503fc?logo=kotlin&logoColor=white&style=for-the-badge"/></a>
-  <img alt="Jetpack Compose" src="https://img.shields.io/static/v1?style=for-the-badge&message=Jetpack+Compose&color=4285F4&logo=Jetpack+Compose&logoColor=FFFFFF&label="/></a> 
+  <img alt="Kotlin" src="https://img.shields.io/badge/Kotlin-a503fc?logo=kotlin&logoColor=white&style=for-the-badge"/>
+  <img alt="Jetpack Compose" src="https://img.shields.io/static/v1?style=for-the-badge&message=Jetpack+Compose&color=4285F4&logo=Jetpack+Compose&logoColor=FFFFFF&label="/>
   <a href="https://hits.sh/github.com/binayshaw7777/Kotfolio/"><img alt="Hits" src="https://hits.sh/github.com/binayshaw7777/Kotfolio.svg?style=for-the-badge&label=Views&extraCount=10&color=54856b"/></a>
 </p>
 
@@ -51,20 +51,19 @@ Follow these steps to set up Kotfolio locally:
 
     ```bash
     $ cd site
-    $ kobweb run
+    $ gradle kobwebStart -t
     ```
 
    Open [http://localhost:8080](http://localhost:8080) with your browser to see the result.
 
-You can use any editor you want for the project, but we recommend using **IntelliJ IDEA Community Edition** downloaded
-using the [Toolbox App](https://www.jetbrains.com/toolbox-app/).
+You can use any editor you want for the project, but I recommend using **IntelliJ IDEA** downloaded using the [Toolbox App](https://www.jetbrains.com/toolbox-app/).
 
-Press `Q` in the terminal to gracefully stop the server.
+Press `Ctrl+d` in the terminal to gracefully stop the server.
 
 ---
 
 <br>
 
-[![Star History Chart](https://api.star-history.com/svg?repos=binayshaw7777/Kotfolio&type=Date)](https://star-history.com/#binayshaw7777/Kotfolio&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=OmyDaGreat/OmyDaGreat.github.io&type=Date)](https://star-history.com/#OmyDaGreat/OmyDaGreat.github.io&Date)
 
 <br>

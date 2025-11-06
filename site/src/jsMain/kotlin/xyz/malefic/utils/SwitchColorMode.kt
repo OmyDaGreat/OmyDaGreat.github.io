@@ -2,9 +2,9 @@ package xyz.malefic.utils
 
 import androidx.compose.runtime.Composable
 import com.varabyte.kobweb.compose.ui.Modifier
-import com.varabyte.kobweb.compose.ui.graphics.Colors
 import com.varabyte.kobweb.compose.ui.styleModifier
 import com.varabyte.kobweb.silk.theme.colors.ColorMode
+import xyz.malefic.theme.ThemeColors
 
 /**
  * A composable function that returns a value based on the current color mode.
@@ -40,21 +40,19 @@ fun switchInvert() = switch(Modifier.styleModifier { property("filter", "invert(
 /**
  * A composable function that returns a gray color based on the current color mode.
  *
- * This function uses the `switch` utility to return `Colors.Gray` when the color mode
- * is light, and `Colors.DimGray` when the color mode is dark.
+ * This function uses the `switch` utility to return secondary text colors from theme.
  *
  * @return The gray color corresponding to the current color mode.
  */
 @Composable
-fun switchGray() = switch(Colors.Gray, Colors.DimGray)
+fun switchGray() = switch(ThemeColors.Text.secondaryLight, ThemeColors.Text.secondaryDark)
 
 /**
  * A composable function that returns a color opposite to the current color mode.
  *
- * This function uses the `switch` utility to return `Colors.Black` when the color mode
- * is light, and `Colors.White` when the color mode is dark.
+ * This function uses the `switch` utility to return text colors from theme.
  *
  * @return The opposite color corresponding to the current color mode.
  */
 @Composable
-fun switchOpposite() = switch(Colors.Black, Colors.White)
+fun switchOpposite() = switch(ThemeColors.Text.light, ThemeColors.Text.dark)

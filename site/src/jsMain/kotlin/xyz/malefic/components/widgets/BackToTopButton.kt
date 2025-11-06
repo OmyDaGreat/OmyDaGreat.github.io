@@ -12,7 +12,6 @@ import com.varabyte.kobweb.compose.foundation.layout.Box
 import com.varabyte.kobweb.compose.foundation.layout.Column
 import com.varabyte.kobweb.compose.ui.Alignment
 import com.varabyte.kobweb.compose.ui.Modifier
-import com.varabyte.kobweb.compose.ui.graphics.Colors
 import com.varabyte.kobweb.compose.ui.modifiers.animation
 import com.varabyte.kobweb.compose.ui.modifiers.backgroundColor
 import com.varabyte.kobweb.compose.ui.modifiers.borderRadius
@@ -28,6 +27,7 @@ import com.varabyte.kobweb.compose.ui.modifiers.opacity
 import com.varabyte.kobweb.compose.ui.modifiers.pointerEvents
 import com.varabyte.kobweb.compose.ui.modifiers.position
 import com.varabyte.kobweb.compose.ui.modifiers.size
+import xyz.malefic.theme.text
 import com.varabyte.kobweb.compose.ui.modifiers.transition
 import com.varabyte.kobweb.compose.ui.modifiers.translateY
 import com.varabyte.kobweb.compose.ui.modifiers.visibility
@@ -110,16 +110,11 @@ fun BackToTopButton() {
     ) {
         val show = scroll != null && scroll!! > 400.0
 
-        val buttonColor =
-            when (ColorMode.current) {
-                ColorMode.LIGHT -> Colors.Black
-                ColorMode.DARK -> Colors.White
-            }
-        val arrowColor =
-            when (ColorMode.current) {
-                ColorMode.LIGHT -> Colors.White
-                ColorMode.DARK -> Colors.Black
-            }
+        val buttonColor = ColorMode.current.text()
+        val arrowColor = when (ColorMode.current) {
+            ColorMode.LIGHT -> xyz.malefic.theme.ThemeColors.Text.dark
+            ColorMode.DARK -> xyz.malefic.theme.ThemeColors.Text.light
+        }
 
         Box(
             modifier =

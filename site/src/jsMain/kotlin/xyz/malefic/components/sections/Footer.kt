@@ -15,7 +15,6 @@ import com.varabyte.kobweb.compose.foundation.layout.Spacer
 import com.varabyte.kobweb.compose.ui.Alignment
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.graphics.Color
-import com.varabyte.kobweb.compose.ui.graphics.Colors
 import com.varabyte.kobweb.compose.ui.modifiers.*
 import com.varabyte.kobweb.core.PageContext
 import com.varabyte.kobweb.core.rememberPageContext
@@ -36,6 +35,9 @@ import org.jetbrains.compose.web.css.px
 import xyz.malefic.components.styles.ButtonStyle
 import xyz.malefic.components.widgets.AppearanceAwareImage
 import xyz.malefic.components.widgets.IconButtonNoHover
+import xyz.malefic.theme.footer
+import xyz.malefic.theme.secondaryText
+import xyz.malefic.theme.text
 import xyz.malefic.utils.CustomColorSchemes
 import xyz.malefic.utils.Links
 import xyz.malefic.utils.Res
@@ -47,11 +49,7 @@ fun Footer(
     breakpoint: Breakpoint,
     modifier: Modifier = Modifier,
 ) {
-    val footerColor =
-        when (ColorMode.current) {
-            ColorMode.LIGHT -> Res.Colors.FOOTER_COLOR_LIGHT
-            ColorMode.DARK -> Res.Colors.FOOTER_COLOR_DARK
-        }
+    val footerColor = ColorMode.current.footer()
 
     var isHorizontal by remember { mutableStateOf(true) }
 
@@ -83,12 +81,7 @@ fun ResumeButton() {
         modifier =
             Modifier
                 .fontFamily(Res.Fonts.DM_SANS)
-                .color(
-                    when (ColorMode.current) {
-                        ColorMode.LIGHT -> Colors.Black
-                        ColorMode.DARK -> Colors.White
-                    },
-                ),
+                .color(ColorMode.current.text()),
     )
 }
 
@@ -125,12 +118,8 @@ fun FooterContent(
                 modifier =
                     Modifier
                         .fillMaxWidth()
-                        .color(
-                            when (ColorMode.current) {
-                                ColorMode.LIGHT -> Colors.Gray
-                                ColorMode.DARK -> Colors.DimGray
-                            },
-                        ).textAlign(footerTextAlignment)
+                        .color(ColorMode.current.secondaryText())
+                        .textAlign(footerTextAlignment)
                         .fontSize(FontSize.Small),
             )
 
@@ -173,6 +162,9 @@ fun NetworkingIconButtons(
     SimpleGrid(modifier = modifier, numColumns = numColumns(base = 5)) {
         IconButtonNoHover(onClick = { ctx.router.navigateTo(Links.GITHUB_URL) }) {
             AppearanceAwareImage(src = Res.Images.GITHUB)
+        }
+        IconButtonNoHover(onClick = { ctx.router.navigateTo(Links.LINKEDIN_URL) }) {
+            AppearanceAwareImage(src = Res.Images.LINKEDIN)
         }
     }
 }

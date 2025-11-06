@@ -10,7 +10,6 @@ import com.varabyte.kobweb.compose.foundation.layout.Row
 import com.varabyte.kobweb.compose.foundation.layout.Spacer
 import com.varabyte.kobweb.compose.ui.Alignment
 import com.varabyte.kobweb.compose.ui.Modifier
-import com.varabyte.kobweb.compose.ui.graphics.Colors
 import com.varabyte.kobweb.compose.ui.modifiers.*
 import com.varabyte.kobweb.compose.ui.styleModifier
 import com.varabyte.kobweb.silk.components.icons.CloseIcon
@@ -164,7 +163,7 @@ private fun SideMenu(
     onAnimationEnd: () -> Unit,
 ) {
     Overlay(
-        Modifier.setVariable(OverlayVars.BackgroundColor, Colors.Transparent).onClick { close() },
+        Modifier.setVariable(OverlayVars.BackgroundColor, xyz.malefic.theme.ThemeColors.Button.transparent).onClick { close() },
     ) {
         key(menuState) {
             // Force recompute animation parameters when close button is clicked

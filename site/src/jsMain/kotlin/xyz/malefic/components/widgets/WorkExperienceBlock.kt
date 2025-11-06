@@ -7,7 +7,6 @@ import com.varabyte.kobweb.compose.foundation.layout.Box
 import com.varabyte.kobweb.compose.foundation.layout.Column
 import com.varabyte.kobweb.compose.ui.Alignment
 import com.varabyte.kobweb.compose.ui.Modifier
-import com.varabyte.kobweb.compose.ui.graphics.Colors
 import com.varabyte.kobweb.compose.ui.modifiers.*
 import com.varabyte.kobweb.silk.components.text.SpanText
 import com.varabyte.kobweb.silk.style.toModifier
@@ -18,6 +17,8 @@ import org.jetbrains.compose.web.css.px
 import xyz.malefic.components.model.WorkExperience
 import xyz.malefic.components.styles.WorkExperienceItemOrgStyle
 import xyz.malefic.components.styles.WorkExperienceItemRoleAndDurationStyle
+import xyz.malefic.theme.secondaryText
+import xyz.malefic.theme.text
 import xyz.malefic.utils.Res
 
 @Composable
@@ -43,11 +44,7 @@ fun WorkExperienceBlock(
                     .border(
                         width = 1.px,
                         style = LineStyle.Solid,
-                        color =
-                            when (ColorMode.current) {
-                                ColorMode.LIGHT -> Colors.Gray
-                                ColorMode.DARK -> Colors.DimGray
-                            },
+                        color = ColorMode.current.secondaryText(),
                     ).borderRadius(10.px)
                     .margin(top = 2.cssRem)
                     .padding(top = 30.px, bottom = 24.px, leftRight = 24.px),
@@ -60,12 +57,8 @@ fun WorkExperienceBlock(
                     WorkExperienceItemRoleAndDurationStyle
                         .toModifier()
                         .fillMaxWidth()
-                        .color(
-                            when (ColorMode.current) {
-                                ColorMode.LIGHT -> Colors.Gray
-                                ColorMode.DARK -> Colors.DimGray
-                            },
-                        ).fontWeight(FontWeight.Bold),
+                        .color(ColorMode.current.secondaryText())
+                        .fontWeight(FontWeight.Bold),
             )
             SpanText(
                 text = workExperience.organization,
@@ -73,12 +66,8 @@ fun WorkExperienceBlock(
                     WorkExperienceItemOrgStyle
                         .toModifier()
                         .fillMaxWidth()
-                        .color(
-                            when (ColorMode.current) {
-                                ColorMode.LIGHT -> Colors.Black
-                                ColorMode.DARK -> Colors.White
-                            },
-                        ).fontFamily(Res.Fonts.SPACE_GROTESK)
+                        .color(ColorMode.current.text())
+                        .fontFamily(Res.Fonts.SPACE_GROTESK)
                         .fontWeight(FontWeight.Bold),
             )
             SpanText(
@@ -87,12 +76,8 @@ fun WorkExperienceBlock(
                     WorkExperienceItemRoleAndDurationStyle
                         .toModifier()
                         .fillMaxWidth()
-                        .color(
-                            when (ColorMode.current) {
-                                ColorMode.LIGHT -> Colors.Gray
-                                ColorMode.DARK -> Colors.DimGray
-                            },
-                        ).fontWeight(FontWeight.Bold),
+                        .color(ColorMode.current.secondaryText())
+                        .fontWeight(FontWeight.Bold),
             )
         }
 
@@ -101,12 +86,8 @@ fun WorkExperienceBlock(
             modifier =
                 Modifier
                     .fontSize(3.cssRem)
-                    .color(
-                        when (ColorMode.current) {
-                            ColorMode.LIGHT -> Colors.Black
-                            ColorMode.DARK -> Colors.White
-                        },
-                    ).margin(left = 2.cssRem)
+                    .color(ColorMode.current.text())
+                    .margin(left = 2.cssRem)
                     .align(Alignment.TopStart)
                     .fontWeight(FontWeight.Bold)
                     .fontFamily(Res.Fonts.SPACE_GROTESK),

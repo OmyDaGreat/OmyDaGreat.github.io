@@ -2,7 +2,6 @@ package xyz.malefic
 
 import com.varabyte.kobweb.compose.css.TextAlign
 import com.varabyte.kobweb.compose.ui.Modifier
-import com.varabyte.kobweb.compose.ui.graphics.Colors
 import com.varabyte.kobweb.compose.ui.modifiers.*
 import com.varabyte.kobweb.silk.components.forms.ButtonStyle
 import com.varabyte.kobweb.silk.components.forms.ButtonVars
@@ -65,5 +64,5 @@ val CircleButtonVariant =
 
 val UncoloredButtonVariant =
     ButtonStyle.addVariantBase {
-        Modifier.setVariable(ButtonVars.BackgroundDefaultColor, Colors.Transparent)
+        Modifier.setVariable(ButtonVars.BackgroundDefaultColor, xyz.malefic.theme.ThemeColors.Button.transparent)
     }

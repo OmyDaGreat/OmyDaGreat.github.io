@@ -2,7 +2,6 @@ package xyz.malefic.components.widgets
 
 import androidx.compose.runtime.Composable
 import com.varabyte.kobweb.compose.ui.Modifier
-import com.varabyte.kobweb.compose.ui.graphics.Colors
 import com.varabyte.kobweb.compose.ui.modifiers.backgroundColor
 import com.varabyte.kobweb.compose.ui.modifiers.scale
 import com.varabyte.kobweb.compose.ui.modifiers.setVariable
@@ -49,9 +48,7 @@ fun IconButtonNoHover(
         FooterIconsStyle
             .toModifier()
             .setVariable(ButtonVars.FontSize, 1.em)
-            .backgroundColor(
-                Colors.Transparent,
-            ), // Make button icon size relative to parent container font size
+            .backgroundColor(xyz.malefic.theme.ThemeColors.Button.transparent),
         variant = CircleButtonVariant.then(UncoloredButtonVariant),
     ) {
         content()

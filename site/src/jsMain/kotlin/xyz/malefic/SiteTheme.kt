@@ -1,12 +1,12 @@
 package xyz.malefic
 
 import com.varabyte.kobweb.compose.ui.graphics.Color
-import com.varabyte.kobweb.compose.ui.graphics.Colors
 import com.varabyte.kobweb.silk.init.InitSilk
 import com.varabyte.kobweb.silk.init.InitSilkContext
 import com.varabyte.kobweb.silk.theme.colors.ColorMode
 import com.varabyte.kobweb.silk.theme.colors.palette.background
 import com.varabyte.kobweb.silk.theme.colors.palette.color
+import xyz.malefic.theme.ThemeColors
 
 /**
  * @property nearBackground A useful color to apply to a container that should differentiate itself
@@ -18,23 +18,29 @@ class SitePalette(
     val brand: Brand,
 ) {
     class Brand(
-        val primary: Color = Color.rgb(0x3C83EF),
-        val accent: Color = Color.rgb(0xF3DB5B),
+        val primary: Color,
+        val accent: Color,
     )
 }
 
 object SitePalettes {
     val light =
         SitePalette(
-            nearBackground = Color.rgb(0xF4F6FA),
-            cobweb = Colors.LightGray,
-            brand = SitePalette.Brand(primary = Color.rgb(0x3C83EF), accent = Color.rgb(0xFCBA03)),
+            nearBackground = ThemeColors.Background.nearBackgroundLight,
+            cobweb = ThemeColors.Border.cobwebLight,
+            brand = SitePalette.Brand(
+                primary = ThemeColors.Brand.primaryLight,
+                accent = ThemeColors.Brand.accentLight
+            ),
         )
     val dark =
         SitePalette(
-            nearBackground = Color.rgb(0x13171F),
-            cobweb = Colors.LightGray.inverted(),
-            brand = SitePalette.Brand(primary = Color.rgb(0x3C83EF), accent = Color.rgb(0xF3DB5B)),
+            nearBackground = ThemeColors.Background.nearBackgroundDark,
+            cobweb = ThemeColors.Border.cobwebDark,
+            brand = SitePalette.Brand(
+                primary = ThemeColors.Brand.primaryDark,
+                accent = ThemeColors.Brand.accentDark
+            ),
         )
 }
 
@@ -46,8 +52,8 @@ fun ColorMode.toSitePalette(): SitePalette =
 
 @InitSilk
 fun initTheme(ctx: InitSilkContext) {
-    ctx.theme.palettes.light.background = Color.rgb(0xFAFAFA)
-    ctx.theme.palettes.light.color = Colors.Black
-    ctx.theme.palettes.dark.background = Color.rgb(0x06080B)
-    ctx.theme.palettes.dark.color = Colors.White
+    ctx.theme.palettes.light.background = ThemeColors.Background.light
+    ctx.theme.palettes.light.color = ThemeColors.Text.light
+    ctx.theme.palettes.dark.background = ThemeColors.Background.dark
+    ctx.theme.palettes.dark.color = ThemeColors.Text.dark
 }
