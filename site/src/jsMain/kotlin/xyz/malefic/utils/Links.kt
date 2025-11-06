@@ -4,6 +4,7 @@ object Links {
     const val RESUME_URL =
         "https://www.canva.com/design/DAE_weT2nG4/WCh6LLhrXqmIHtZF2spGFg/view?utm_content=DAE_weT2nG4&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=he3f15269ab"
     const val GITHUB_URL = "https://github.com/omydagreat"
+    const val LINKEDIN_URL = "https://www.linkedin.com/in/om-gupta-051b6a359/"
     const val MAIL_TO = "mailto:om@malefic.xyz"
     const val PROJECT_READBUD_URL = "https://github.com/binayshaw7777/ReadBud"
     const val PROJECT_JUSTAP_URL = "https://github.com/binayshaw7777/JusTap"

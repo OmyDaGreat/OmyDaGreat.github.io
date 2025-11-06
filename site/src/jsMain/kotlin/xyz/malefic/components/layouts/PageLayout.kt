@@ -12,6 +12,7 @@ import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.*
 import com.varabyte.kobweb.compose.ui.styleModifier
 import com.varabyte.kobweb.compose.ui.toAttrs
+import com.varabyte.kobweb.framework.annotations.DelicateApi
 import com.varabyte.kobweb.silk.style.CssStyle
 import com.varabyte.kobweb.silk.style.breakpoint.Breakpoint
 import com.varabyte.kobweb.silk.style.toModifier
@@ -149,6 +150,7 @@ fun SVGBackroundCircle(modifier: Modifier) {
     AppearanceAwareImage(src = Res.Images.BACKGROUND_CIRCLES, modifier = modifier)
 }
 
+@OptIn(DelicateApi::class)
 @Composable
 fun PageLayout(
     title: String,
@@ -211,8 +213,7 @@ fun PageLayout(
             BackToTopButton()
         }
         NavHeader(modifier = Modifier.position(Position.Fixed).top(0.px))
-        // Associate the footer with the row that will get pushed off the bottom of the page if it can't
-        // fit.
+        // Associate the footer with the row that will get pushed off the bottom of the page if it can't fit.
         Footer(breakpoint, Modifier.fillMaxWidth().gridRow(2))
     }
 }
