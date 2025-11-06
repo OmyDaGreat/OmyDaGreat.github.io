@@ -94,7 +94,7 @@ fun Home() {
             Div(HeadlineTextStyle.toAttrs()) {
                 Button(
                     onClick = { ctx.router.navigateTo(Links.RESUME_URL) },
-                    colorScheme = CustomColorSchemes.BlackAndWhite,
+                    colorPalette = CustomColorSchemes.BlackAndWhite,
                     size = ButtonSize.MD,
                     modifier = ButtonStyle.toModifier().width(150.percent).margin(top = 70.px),
                 ) {

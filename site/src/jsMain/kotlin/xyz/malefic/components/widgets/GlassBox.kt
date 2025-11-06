@@ -47,7 +47,7 @@ fun GlassBox(
                     .borderRadius(roundedCorners)
                     .border(width = borderWidth, style = borderStyle, color = borderColor)
                     .styleModifier { mixBlendMode(blendMode) }
-                    .backgroundImage(linearGradient(gradientDirection, startColor, endColor)),
+                    .backgroundImage(linearGradient(startColor, endColor, gradientDirection)),
         )
         content()
     }

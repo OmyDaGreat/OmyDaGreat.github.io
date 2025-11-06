@@ -1,11 +1,11 @@
 package xyz.malefic.utils
 
 import com.varabyte.kobweb.compose.ui.graphics.Color
-import com.varabyte.kobweb.silk.theme.colors.ColorScheme
+import com.varabyte.kobweb.silk.theme.colors.ColorPalette
 
 object CustomColorSchemes {
     val BlackAndWhite =
-        object : ColorScheme {
+        object : ColorPalette {
             override val _50 = Color.rgb(0XFFFFFF)
             override val _100 = Color.rgb(0XFFFFFF)
             override val _200 = Color.rgb(0XFFFFFF)

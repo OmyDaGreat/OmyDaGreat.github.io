@@ -67,7 +67,7 @@ fun Footer(
 fun EmailButton(ctx: PageContext) {
     Button(
         onClick = { ctx.router.navigateTo(Links.MAIL_TO) },
-        colorScheme = CustomColorSchemes.BlackAndWhite,
+        colorPalette = CustomColorSchemes.BlackAndWhite,
         size = ButtonSize.MD,
         modifier = ButtonStyle.toModifier().margin(right = 20.px),
     ) {
