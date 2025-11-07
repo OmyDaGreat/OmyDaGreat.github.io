@@ -60,8 +60,9 @@ private fun MenuItems() {
     NavLink("#about", "About")
     NavLink("#skills_and_tools", "Skills & Tools")
     NavLink("#photography", "Photography")
-    NavLink("#projects", "Projects")
-    NavLink("#maleficcompose", "MaleficCompose")
+    NavLink("#applications", "Applications")
+    NavLink("#libraries", "Libraries")
+    NavLink("#templates", "Templates")
 }
 
 @Composable

@@ -12,6 +12,7 @@ import com.varabyte.kobweb.silk.theme.colors.ColorMode
 import xyz.malefic.components.styles.AboutStyle
 import xyz.malefic.components.styles.SectionDescriptionStyle
 import xyz.malefic.components.widgets.SectionTitle
+import xyz.malefic.components.widgets.SpanTextGray
 import xyz.malefic.theme.secondaryText
 import xyz.malefic.utils.Res
 
@@ -34,5 +35,7 @@ fun About() {
                     .color(ColorMode.current.secondaryText())
                     .fontFamily(Res.Fonts.DM_SANS),
         )
+
+        SpanTextGray("I go by Malefic online")
     }
 }

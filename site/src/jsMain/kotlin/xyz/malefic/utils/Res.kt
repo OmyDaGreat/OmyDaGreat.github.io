@@ -26,7 +26,7 @@ object Res {
         const val JAVASCRIPT_LOGO = "images/Skills/Javascript.svg"
         const val KOTLIN_LOGO = "images/Skills/Kotlin.svg"
         const val MARKDOWN_LOGO = "images/Skills/Markdown.svg"
-        const val NODEJS_LOGO = "images/Skills/NodeJS.svg"
+        const val ASCIIDOC_LOGO = "images/Skills/AsciiDoc.svg"
 
         // Socials
         const val GITHUB = "images/Socials/github.svg"

@@ -50,7 +50,7 @@ fun SkillsAndTools() {
                             CSS_LOGO.src,
                             JAVASCRIPT_LOGO.src,
                             EXPRESS_LOGO.src,
-                            NODEJS_LOGO.src,
+                            ASCIIDOC_LOGO.src,
                             MARKDOWN_LOGO.src,
                         )
                     }

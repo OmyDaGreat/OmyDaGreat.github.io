@@ -19,15 +19,13 @@ import xyz.malefic.components.widgets.SpanTextGray
 import xyz.malefic.utils.getAllCompose
 
 @Composable
-fun MaleficCompose() {
+fun Applications() {
     Column(
-        modifier = ProjectStyle.toModifier().id("maleficcompose"),
+        modifier = ProjectStyle.toModifier().id("applications"),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        SectionTitle("MaleficCompose")
-
-        SpanTextGray("I go by Malefic online")
+        SectionTitle("Applications")
 
         SpanTextGray("MaleficCompose is a Github organization I have created dedicated to furthering Compose for Desktop utilities")
 

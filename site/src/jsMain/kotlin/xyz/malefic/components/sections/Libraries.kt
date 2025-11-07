@@ -22,23 +22,23 @@ import com.varabyte.kobweb.silk.theme.colors.ColorMode
 import org.jetbrains.compose.web.css.cssRem
 import org.jetbrains.compose.web.css.px
 import xyz.malefic.components.styles.ProjectStyle
-import xyz.malefic.theme.text
 import xyz.malefic.components.widgets.AppearanceAwareImage
 import xyz.malefic.components.widgets.RoundedImage
 import xyz.malefic.components.widgets.SectionTitle
 import xyz.malefic.components.widgets.SpanTextGray
+import xyz.malefic.theme.text
 import xyz.malefic.utils.Links
 import xyz.malefic.utils.Res
 import xyz.malefic.utils.getAllProjects
 
 @Composable
-fun Projects() {
+fun Libraries() =
     Column(
-        modifier = ProjectStyle.toModifier().id("projects"),
+        modifier = ProjectStyle.toModifier().id("libraries"),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        SectionTitle("My Side Projects.")
+        SectionTitle("My Libraries.")
 
         SpanTextGray("I really have a bad habit of creating projects over projects XD")
 
@@ -72,4 +72,3 @@ fun Projects() {
             }
         }
     }
-}

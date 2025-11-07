@@ -24,9 +24,11 @@ fun HomePage() {
 
                     Photography()
 
-                    Projects()
+                    Applications()
 
-                    MaleficCompose()
+                    Libraries()
+
+                    Templates()
                 }
             }
         }
