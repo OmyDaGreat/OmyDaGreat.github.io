@@ -12,6 +12,7 @@ import com.varabyte.kobweb.compose.ui.Alignment
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.*
 import com.varabyte.kobweb.compose.ui.styleModifier
+import com.varabyte.kobweb.silk.components.graphics.Image
 import com.varabyte.kobweb.silk.components.icons.CloseIcon
 import com.varabyte.kobweb.silk.components.icons.HamburgerIcon
 import com.varabyte.kobweb.silk.components.icons.MoonIcon
@@ -59,7 +60,6 @@ private fun MenuItems() {
     NavLink("#home", "Home")
     NavLink("#about", "About")
     NavLink("#skills_and_tools", "Skills & Tools")
-    NavLink("#photography", "Photography")
     NavLink("#applications", "Applications")
     NavLink("#libraries", "Libraries")
     NavLink("#templates", "Templates")
@@ -115,12 +115,14 @@ fun NavHeader(modifier: Modifier = Modifier) {
         NavHeaderStyle.toModifier().fillMaxWidth().then(modifier),
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        //        Link("https://kobweb.varabyte.com") {
-        //            // Block display overrides inline display of the <img> tag, so it calculates
-        // centering better
-        //            Image("/kobweb-logo.png", "Kobweb Logo",
-        // Modifier.height(2.cssRem).display(DisplayStyle.Block))
-        //        }
+//        Link("https://kobweb.varabyte.com") {
+//            // Block display overrides inline display of the <img> tag, so it calculates centering better
+//            Image(
+//                "/kobweb-logo.png",
+//                "Kobweb Logo",
+//                Modifier.height(2.cssRem).display(DisplayStyle.Block),
+//            )
+//        }
 
         Spacer()
 

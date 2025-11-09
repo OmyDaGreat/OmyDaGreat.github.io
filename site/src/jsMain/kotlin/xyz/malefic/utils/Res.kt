@@ -49,6 +49,7 @@ object Res {
 
         // Projects
         const val PROJECT_JUSTAP = "images/Projects/Project_JusTap.png"
+        const val PROJECT_ARIES = "images/Projects/Aries.png"
         const val PROJECT_MEDIFY = "images/Projects/Project_Medify.png"
         const val PROJECT_PASSGENIE = "images/Projects/Project_PassGenie.png"
         const val PROJECT_PRESIN = "images/Projects/Project_PresIN.png"

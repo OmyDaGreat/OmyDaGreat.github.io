@@ -29,7 +29,8 @@ import xyz.malefic.components.widgets.SpanTextGray
 import xyz.malefic.theme.text
 import xyz.malefic.utils.Links
 import xyz.malefic.utils.Res
-import xyz.malefic.utils.getAllProjects
+import xyz.malefic.utils.getAllApplications
+import xyz.malefic.utils.getAllCompose
 
 @Composable
 fun Libraries() =
@@ -46,7 +47,7 @@ fun Libraries() =
             numColumns = numColumns(base = 1, sm = 2, md = 3),
             modifier = Modifier.fillMaxWidth().margin(top = 3.cssRem, bottom = 6.cssRem),
         ) {
-            val allProjects = getAllProjects()
+            val allProjects = getAllApplications()
 
             repeat(allProjects.size) {
                 val project = allProjects[it]
@@ -69,6 +70,18 @@ fun Libraries() =
                     )
                     AppearanceAwareImage(src = Res.Images.NAVIGATION_ARROW)
                 }
+            }
+        }
+
+        SpanTextGray("MaleficCompose is a Github organization I have created dedicated to furthering Compose for Desktop utilities")
+
+        SimpleGrid(
+            numColumns = numColumns(base = 1, sm = 2, md = 3),
+            modifier = Modifier.fillMaxWidth().margin(top = 3.cssRem, bottom = 6.cssRem),
+        ) {
+            repeat(getAllCompose().size) {
+                val compose = getAllCompose()[it]
+                RoundedImage(src = compose.first, navigateTo = compose.second)
             }
         }
     }

@@ -1,6 +1,6 @@
 package xyz.malefic.utils
 
-fun getAllProjects() =
+fun getAllApplications() =
     listOf(
         Pair(Res.Images.PROJECT_READBUD, Links.PROJECT_READBUD_URL),
         Pair(Res.Images.PROJECT_JUSTAP, Links.PROJECT_JUSTAP_URL),

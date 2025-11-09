@@ -29,7 +29,7 @@ import xyz.malefic.components.widgets.SpanTextGray
 import xyz.malefic.theme.text
 import xyz.malefic.utils.Links
 import xyz.malefic.utils.Res
-import xyz.malefic.utils.getAllProjects
+import xyz.malefic.utils.getAllApplications
 
 @Composable
 fun Templates() =
@@ -46,7 +46,7 @@ fun Templates() =
             numColumns = numColumns(base = 1, sm = 2, md = 3),
             modifier = Modifier.fillMaxWidth().margin(top = 3.cssRem, bottom = 6.cssRem),
         ) {
-            val allProjects = getAllProjects()
+            val allProjects = getAllApplications()
 
             repeat(allProjects.size) {
                 val project = allProjects[it]

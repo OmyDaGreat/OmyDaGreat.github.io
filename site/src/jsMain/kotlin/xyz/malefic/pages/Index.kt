@@ -22,8 +22,6 @@ fun HomePage() {
 
                     SkillsAndTools()
 
-                    Photography()
-
                     Applications()
 
                     Libraries()
