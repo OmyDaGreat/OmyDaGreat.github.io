@@ -36,6 +36,6 @@ fun About() {
                     .fontFamily(Res.Fonts.DM_SANS),
         )
 
-        SpanTextGray("I go by Malefic online")
+        SpanTextGray("I also go by Malefic online!")
     }
 }

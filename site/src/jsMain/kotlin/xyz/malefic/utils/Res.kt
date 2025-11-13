@@ -33,22 +33,9 @@ object Res {
         const val GITHUB_FILLED = "images/Socials/github-filled.svg"
         const val LINKEDIN = "images/Socials/linkedin.svg"
 
-        // Photographs
-        const val IMAGE_1 = "images/Photographs/Image 1.png"
-        const val IMAGE_2 = "images/Photographs/Image 2.png"
-        const val IMAGE_3 = "images/Photographs/Image 3.png"
-        const val IMAGE_4 = "images/Photographs/Image 4.png"
-        const val IMAGE_5 = "images/Photographs/Image 5.png"
-        const val IMAGE_6 = "images/Photographs/Image 6.png"
-        const val IMAGE_7 = "images/Photographs/Image 7.png"
-        const val IMAGE_8 = "images/Photographs/Image 8.png"
-        const val IMAGE_9 = "images/Photographs/Image 9.png"
-        const val IMAGE_10 = "images/Photographs/Image 10.png"
-        const val IMAGE_11 = "images/Photographs/Image 11.png"
-        const val IMAGE_12 = "images/Photographs/Image 12.png"
-
         // Projects
         const val PROJECT_JUSTAP = "images/Projects/Project_JusTap.png"
+        const val PROJECT_ARIES = "images/Projects/Aries.png"
         const val PROJECT_MEDIFY = "images/Projects/Project_Medify.png"
         const val PROJECT_PASSGENIE = "images/Projects/Project_PassGenie.png"
         const val PROJECT_PRESIN = "images/Projects/Project_PresIN.png"
