@@ -18,19 +18,3 @@ fun getAllCompose() =
         Pair(Res.Images.COMPOSE_THEMING, Links.COMPOSE_THEMING_URL),
         Pair(Res.Images.COMPOSE_ENGINE, Links.COMPOSE_ENGINE_URL),
     )
-
-fun getAllPhotographs() =
-    listOf(
-        Res.Images.IMAGE_1,
-        Res.Images.IMAGE_2,
-        Res.Images.IMAGE_3,
-        Res.Images.IMAGE_4,
-        Res.Images.IMAGE_5,
-        Res.Images.IMAGE_6,
-        Res.Images.IMAGE_7,
-        Res.Images.IMAGE_8,
-        Res.Images.IMAGE_9,
-        Res.Images.IMAGE_10,
-        Res.Images.IMAGE_11,
-        Res.Images.IMAGE_12,
-    )
