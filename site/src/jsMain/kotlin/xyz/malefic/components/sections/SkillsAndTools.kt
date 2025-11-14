@@ -1,8 +1,6 @@
 package xyz.malefic.components.sections
 
 import androidx.compose.runtime.Composable
-import com.varabyte.kobweb.compose.css.MixBlendMode
-import com.varabyte.kobweb.compose.css.mixBlendMode
 import com.varabyte.kobweb.compose.foundation.layout.Arrangement
 import com.varabyte.kobweb.compose.foundation.layout.Column
 import com.varabyte.kobweb.compose.ui.Alignment
@@ -12,7 +10,6 @@ import com.varabyte.kobweb.compose.ui.modifiers.id
 import com.varabyte.kobweb.compose.ui.modifiers.margin
 import com.varabyte.kobweb.compose.ui.modifiers.padding
 import com.varabyte.kobweb.compose.ui.modifiers.size
-import com.varabyte.kobweb.compose.ui.styleModifier
 import com.varabyte.kobweb.silk.components.graphics.Image
 import com.varabyte.kobweb.silk.components.layout.SimpleGrid
 import com.varabyte.kobweb.silk.components.layout.numColumns
@@ -44,12 +41,12 @@ fun SkillsAndTools() {
                 ) {
                     Res.Images.apply {
                         IconGlassBoxes(
-                            KOTLIN_LOGO.withMod(Modifier.styleModifier { mixBlendMode(MixBlendMode.Normal) }),
+                            KOTLIN_LOGO.src,
+                            JETPACK_COMPOSE_LOGO.src,
                             JAVA_LOGO.src,
+                            PYTHON_LOGO.src,
                             HTML_LOGO.src,
                             CSS_LOGO.src,
-                            JAVASCRIPT_LOGO.src,
-                            EXPRESS_LOGO.src,
                             ASCIIDOC_LOGO.src,
                             MARKDOWN_LOGO.src,
                         )
@@ -64,8 +61,9 @@ fun SkillsAndTools() {
                 ) {
                     Res.Images.apply {
                         IconGlassBoxes(
-                            ANDROID_LOGO.src,
                             INTELLIJ_LOGO.src,
+                            ARCH_LOGO.src,
+                            ANDROID_LOGO.src,
                             FIGMA_LOGO.src,
                             FIREBASE_LOGO.src,
                             MONGODB_LOGO.src,

@@ -17,16 +17,17 @@ object Res {
         const val MONGODB_LOGO = "images/Tools/MongoDB.svg"
         const val POSTMAN_LOGO = "images/Tools/Postman.svg"
         const val VSCODE_LOGO = "images/Tools/VSCode.svg"
+        const val ARCH_LOGO = "images/Tools/ArchLinux.svg"
 
         // Skills
         const val CSS_LOGO = "images/Skills/CSS.svg"
-        const val EXPRESS_LOGO = "images/Skills/ExpressJS.svg"
         const val HTML_LOGO = "images/Skills/HTML.svg"
         const val JAVA_LOGO = "images/Skills/Java.svg"
-        const val JAVASCRIPT_LOGO = "images/Skills/Javascript.svg"
         const val KOTLIN_LOGO = "images/Skills/Kotlin.svg"
         const val MARKDOWN_LOGO = "images/Skills/Markdown.svg"
         const val ASCIIDOC_LOGO = "images/Skills/AsciiDoc.svg"
+        const val JETPACK_COMPOSE_LOGO = "images/Skills/JetpackCompose.svg"
+        const val PYTHON_LOGO = "images/Skills/Python.svg"
 
         // Socials
         const val GITHUB = "images/Socials/github.svg"
