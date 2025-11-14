@@ -43,12 +43,16 @@ fun SkillsAndTools() {
                         IconGlassBoxes(
                             KOTLIN_LOGO.src,
                             JETPACK_COMPOSE_LOGO.src,
+                            KTOR_LOGO.src,
                             JAVA_LOGO.src,
                             PYTHON_LOGO.src,
-                            HTML_LOGO.src,
-                            CSS_LOGO.src,
+                            ANDROID_LOGO.src,
+                            APPLE_LOGO.src,
                             ASCIIDOC_LOGO.src,
-                            MARKDOWN_LOGO.src,
+                            TRELLO_LOGO.src,
+                            SLACK_LOGO.src,
+                            PORTAINER_LOGO.src,
+                            HOMEBREW_LOGO.src,
                         )
                     }
                 }
@@ -63,13 +67,16 @@ fun SkillsAndTools() {
                         IconGlassBoxes(
                             INTELLIJ_LOGO.src,
                             ARCH_LOGO.src,
-                            ANDROID_LOGO.src,
-                            FIGMA_LOGO.src,
-                            FIREBASE_LOGO.src,
-                            MONGODB_LOGO.src,
+                            GODOT_LOGO.src,
+                            GRADLE_LOGO.src,
+                            DOCKER_LOGO.src,
                             VSCODE_LOGO.src,
                             GIT_LOGO.src,
+                            GITKRAKEN_LOGO.src,
                             POSTMAN_LOGO.src,
+                            GITHUB_FILLED.src,
+                            GITHUB_ACTIONS_LOGO.src,
+                            POSTGRE_LOGO.src,
                         )
                     }
                 }
