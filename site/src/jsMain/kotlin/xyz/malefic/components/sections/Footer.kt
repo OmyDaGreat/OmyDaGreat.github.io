@@ -15,14 +15,20 @@ import com.varabyte.kobweb.compose.foundation.layout.Spacer
 import com.varabyte.kobweb.compose.ui.Alignment
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.graphics.Color
-import com.varabyte.kobweb.compose.ui.modifiers.*
+import com.varabyte.kobweb.compose.ui.modifiers.backgroundColor
+import com.varabyte.kobweb.compose.ui.modifiers.color
+import com.varabyte.kobweb.compose.ui.modifiers.fillMaxWidth
+import com.varabyte.kobweb.compose.ui.modifiers.fontFamily
+import com.varabyte.kobweb.compose.ui.modifiers.fontSize
+import com.varabyte.kobweb.compose.ui.modifiers.margin
+import com.varabyte.kobweb.compose.ui.modifiers.padding
+import com.varabyte.kobweb.compose.ui.modifiers.textAlign
 import com.varabyte.kobweb.core.PageContext
 import com.varabyte.kobweb.core.rememberPageContext
 import com.varabyte.kobweb.silk.components.forms.Button
 import com.varabyte.kobweb.silk.components.forms.ButtonSize
 import com.varabyte.kobweb.silk.components.layout.SimpleGrid
 import com.varabyte.kobweb.silk.components.layout.numColumns
-import com.varabyte.kobweb.silk.components.navigation.Link
 import com.varabyte.kobweb.silk.components.text.SpanText
 import com.varabyte.kobweb.silk.style.CssStyle
 import com.varabyte.kobweb.silk.style.base
@@ -37,7 +43,6 @@ import xyz.malefic.components.widgets.AppearanceAwareImage
 import xyz.malefic.components.widgets.IconButtonNoHover
 import xyz.malefic.theme.footer
 import xyz.malefic.theme.secondaryText
-import xyz.malefic.theme.text
 import xyz.malefic.utils.CustomColorSchemes
 import xyz.malefic.utils.Links
 import xyz.malefic.utils.Res
@@ -70,26 +75,6 @@ fun EmailButton(ctx: PageContext) {
         modifier = ButtonStyle.toModifier().margin(right = 20.px),
     ) {
         SpanText(text = "Email", modifier = Modifier.fontFamily(Res.Fonts.DM_SANS))
-    }
-}
-
-@Composable
-fun ResumeButton() {
-    Link(
-        path = Links.RESUME_URL,
-        text = "Resume.",
-        modifier =
-            Modifier
-                .fontFamily(Res.Fonts.DM_SANS)
-                .color(ColorMode.current.text()),
-    )
-}
-
-@Composable
-fun EmailAndResume(ctx: PageContext) {
-    Row(verticalAlignment = Alignment.CenterVertically) {
-        EmailButton(ctx)
-        ResumeButton()
     }
 }
 
@@ -131,7 +116,7 @@ fun FooterContent(
                     horizontalArrangement = Arrangement.Start,
                     verticalAlignment = Alignment.CenterVertically,
                 ) {
-                    EmailAndResume(ctx)
+                    EmailButton(ctx)
 
                     Spacer()
 
@@ -143,7 +128,7 @@ fun FooterContent(
                     horizontalAlignment = Alignment.CenterHorizontally,
                     verticalArrangement = Arrangement.Center,
                 ) {
-                    EmailAndResume(ctx)
+                    EmailButton(ctx)
 
                     Spacer()
 

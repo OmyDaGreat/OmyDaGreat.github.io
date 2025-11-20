@@ -5,34 +5,28 @@ import com.varabyte.kobweb.compose.css.FontWeight
 import com.varabyte.kobweb.compose.foundation.layout.Box
 import com.varabyte.kobweb.compose.foundation.layout.Column
 import com.varabyte.kobweb.compose.ui.Alignment
-import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.animation
 import com.varabyte.kobweb.compose.ui.modifiers.color
 import com.varabyte.kobweb.compose.ui.modifiers.fontFamily
 import com.varabyte.kobweb.compose.ui.modifiers.fontWeight
 import com.varabyte.kobweb.compose.ui.modifiers.margin
-import com.varabyte.kobweb.compose.ui.modifiers.width
 import com.varabyte.kobweb.compose.ui.toAttrs
-import com.varabyte.kobweb.core.rememberPageContext
-import com.varabyte.kobweb.silk.components.forms.Button
-import com.varabyte.kobweb.silk.components.forms.ButtonSize
 import com.varabyte.kobweb.silk.components.text.SpanText
 import com.varabyte.kobweb.silk.style.animation.toAnimation
-import com.varabyte.kobweb.silk.style.toAttrs
 import com.varabyte.kobweb.silk.style.toModifier
 import com.varabyte.kobweb.silk.theme.colors.ColorMode
 import org.jetbrains.compose.web.css.AnimationTimingFunction
-import org.jetbrains.compose.web.css.percent
 import org.jetbrains.compose.web.css.px
 import org.jetbrains.compose.web.css.s
 import org.jetbrains.compose.web.dom.Div
-import xyz.malefic.HeadlineTextStyle
 import xyz.malefic.SubheadlineTextStyle
-import xyz.malefic.components.styles.*
+import xyz.malefic.components.styles.HelloImStyle
+import xyz.malefic.components.styles.HeroContainerKeyFrames
+import xyz.malefic.components.styles.HeroSectionStyle
+import xyz.malefic.components.styles.UserNameStyle
+import xyz.malefic.components.styles.UsersMessageStyle
 import xyz.malefic.theme.secondaryText
 import xyz.malefic.theme.text
-import xyz.malefic.utils.CustomColorSchemes
-import xyz.malefic.utils.Links
 import xyz.malefic.utils.Res
 
 @Composable
@@ -76,19 +70,6 @@ fun Home() {
                             .color(ColorMode.current.secondaryText())
                             .fontFamily(Res.Fonts.DM_SANS),
                 )
-            }
-
-            val ctx = rememberPageContext()
-
-            Div(HeadlineTextStyle.toAttrs()) {
-                Button(
-                    onClick = { ctx.router.navigateTo(Links.RESUME_URL) },
-                    colorPalette = CustomColorSchemes.BlackAndWhite,
-                    size = ButtonSize.MD,
-                    modifier = ButtonStyle.toModifier().width(150.percent).margin(top = 70.px),
-                ) {
-                    SpanText(text = "Resume", modifier = Modifier.fontFamily(Res.Fonts.TAURI))
-                }
             }
         }
     }
