@@ -5,6 +5,6 @@ pluginManagement {
     }
 }
 
-rootProject.name = "kotfolio"
+rootProject.name = "portfolio"
 
 include(":site")
