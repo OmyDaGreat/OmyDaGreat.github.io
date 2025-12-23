@@ -17,6 +17,7 @@ import com.varabyte.kobweb.silk.style.toModifier
 import org.jetbrains.compose.web.css.cssRem
 import org.jetbrains.compose.web.css.px
 import xyz.malefic.components.styles.ExperienceStyle
+import xyz.malefic.components.widgets.AppearanceAwareImage
 import xyz.malefic.components.widgets.GlassBox
 import xyz.malefic.components.widgets.SectionTitle
 import xyz.malefic.utils.Res
@@ -47,7 +48,7 @@ fun SkillsAndTools() {
                             JAVA_LOGO.src,
                             PYTHON_LOGO.src,
                             ANDROID_LOGO.src,
-                            APPLE_LOGO.src,
+                            APPLE_LOGO.withMod(invert = false),
                             ASCIIDOC_LOGO.src,
                             TRELLO_LOGO.src,
                             SLACK_LOGO.src,
@@ -74,7 +75,7 @@ fun SkillsAndTools() {
                             GIT_LOGO.src,
                             GITKRAKEN_LOGO.src,
                             POSTMAN_LOGO.src,
-                            GITHUB_FILLED.src,
+                            GITHUB_FILLED.withMod(),
                             GITHUB_ACTIONS_LOGO.src,
                             POSTGRE_LOGO.src,
                         )
@@ -102,58 +103,64 @@ fun IconGlassBox(
     }
 }
 
+@Composable
+fun AppearanceAwareIconGlassBox(
+    src: String,
+    modifier: Modifier = Modifier,
+    invert: Boolean = true,
+) {
+    GlassBox(modifier = Modifier.size(65.px).margin(all = 0.6.cssRem)) {
+        AppearanceAwareImage(src = src, modifier = Modifier.size(42.px).then(modifier), invert = invert)
+    }
+}
+
 /**
  * A composable function that displays a series of glass-like boxes, each containing an icon image.
  *
- * @param iconSources A variable number of image source URLs to be displayed within the glass boxes.
+ * @param iconSources A variable number of image source descriptors to be displayed within the glass boxes.
  */
 @Composable
 fun IconGlassBoxes(vararg iconSources: IconSource) {
     iconSources.forEach { iconSource ->
-        when (iconSource) {
-            is IconSource.Single -> {
-                IconGlassBox(iconSource.string)
-            }
-            is IconSource.WithModifier -> {
-                IconGlassBox(iconSource.string, iconSource.modifier)
-            }
+        // If invert is null we render the regular Image, otherwise we render the appearance-aware variant.
+        if (iconSource.invert == null) {
+            IconGlassBox(iconSource.src, iconSource.modifier)
+        } else {
+            AppearanceAwareIconGlassBox(iconSource.src, iconSource.modifier, iconSource.invert)
         }
     }
 }
 
 /**
- * Represents a source for an icon, which can either be a single source or a source with an
- * additional modifier.
+ * Simple representation of an icon source.
  *
- * @property Single A single icon source represented by a URL or path.
- * @property WithModifier An icon source with an associated modifier for additional styling or
- *   behavior.
+ * - If [invert] is null -> treat as a regular image and render with [Image].
+ * - If [invert] is non-null -> render with [AppearanceAwareImage] using the provided value.
  */
-sealed class IconSource {
-    data class Single(
-        val string: String,
-    ) : IconSource()
-
-    data class WithModifier(
-        val string: String,
-        val modifier: Modifier,
-    ) : IconSource()
-}
+data class IconSource(
+    val src: String,
+    val modifier: Modifier = Modifier,
+    val invert: Boolean? = null,
+)
 
 /**
- * Extension property to convert a string into an [IconSource.Single].
- *
- * @return An [IconSource.Single] containing the string.
- * @receiver The string representing the icon source URL or path.
+ * Extension to quickly create a regular (non-appearance-aware) IconSource from a [String].
  */
 val String.src: IconSource
-    get() = IconSource.Single(this)
+    get() = IconSource(this)
 
 /**
- * Converts a string into an IconSource with an associated modifier.
- *
- * @param modifier A [Modifier] to be applied for additional styling or behavior.
- * @return An [IconSource.WithModifier] containing the string and the modifier.
- * @receiver The string representing the icon source URL or path.
+ * Create an appearance-aware IconSource. By default [invert] is true.
  */
-fun String.withMod(modifier: Modifier): IconSource = IconSource.WithModifier(this, modifier)
+fun String.appearance(
+    invert: Boolean = true,
+    modifier: Modifier = Modifier,
+): IconSource = IconSource(this, modifier, invert)
+
+/**
+ * Backwards-compatible helper that matches the previous `withMod` usage. Prefer using `.appearance` or `.src`.
+ */
+fun String.withMod(
+    invert: Boolean = true,
+    modifier: Modifier = Modifier,
+): IconSource = appearance(invert, modifier)

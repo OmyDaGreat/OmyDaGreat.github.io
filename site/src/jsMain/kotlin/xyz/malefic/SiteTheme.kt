@@ -28,19 +28,21 @@ object SitePalettes {
         SitePalette(
             nearBackground = ThemeColors.Background.nearBackgroundLight,
             cobweb = ThemeColors.Border.cobwebLight,
-            brand = SitePalette.Brand(
-                primary = ThemeColors.Brand.primaryLight,
-                accent = ThemeColors.Brand.accentLight
-            ),
+            brand =
+                SitePalette.Brand(
+                    primary = ThemeColors.Brand.primaryLight,
+                    accent = ThemeColors.Brand.accentLight,
+                ),
         )
     val dark =
         SitePalette(
             nearBackground = ThemeColors.Background.nearBackgroundDark,
             cobweb = ThemeColors.Border.cobwebDark,
-            brand = SitePalette.Brand(
-                primary = ThemeColors.Brand.primaryDark,
-                accent = ThemeColors.Brand.accentDark
-            ),
+            brand =
+                SitePalette.Brand(
+                    primary = ThemeColors.Brand.primaryDark,
+                    accent = ThemeColors.Brand.accentDark,
+                ),
         )
 }
 

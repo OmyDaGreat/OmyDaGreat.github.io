@@ -2,11 +2,11 @@ package xyz.malefic.utils
 
 fun getAllApplications() =
     listOf(
-        Pair(Res.Images.PROJECT_READBUD, Links.PROJECT_READBUD_URL),
-        Pair(Res.Images.PROJECT_JUSTAP, Links.PROJECT_JUSTAP_URL),
-        Pair(Res.Images.PROJECT_PASSGENIE, Links.PROJECT_PASSGENIE_URL),
-        Pair(Res.Images.PROJECT_MEDIFY, Links.PROJECT_MEDIFY_URL),
-        Pair(Res.Images.PROJECT_PRESIN, Links.PROJECT_PRESIN_URL),
+        Res.Images.PROJECT_ARIES to Links.PROJECT_ARIES_URL,
+        Res.Images.PROJECT_LEVIATHAN to Links.PROJECT_LEVIATHAN_URL,
+        Res.Images.PROJECT_HELLS_KITCHEN to Links.PROJECT_HELLS_KITCHEN_URL,
+        Res.Images.PROJECT_SPLITLY to Links.PROJECT_SPLITLY_URL,
+        Res.Images.PROJECT_REEFSCAPE to Links.PROJECT_REEFSCAPE_URL,
     )
 
 fun getAllCompose() =

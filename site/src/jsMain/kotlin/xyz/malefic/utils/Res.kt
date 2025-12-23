@@ -38,13 +38,12 @@ object Res {
         const val GITHUB_FILLED = "images/Socials/github-filled.svg"
         const val LINKEDIN = "images/Socials/linkedin.svg"
 
-        // Projects
+        // Applications
         const val PROJECT_ARIES = "images/Projects/Aries.png"
-        const val PROJECT_JUSTAP = "images/Projects/Project_JusTap.png"
-        const val PROJECT_MEDIFY = "images/Projects/Project_Medify.png"
-        const val PROJECT_PASSGENIE = "images/Projects/Project_PassGenie.png"
-        const val PROJECT_PRESIN = "images/Projects/Project_PresIN.png"
-        const val PROJECT_READBUD = "images/Projects/Project_ReadBud.png"
+        const val PROJECT_LEVIATHAN = "images/Projects/Placeholder.png"
+        const val PROJECT_HELLS_KITCHEN = "images/Projects/Hells_Kitchen.png"
+        const val PROJECT_SPLITLY = "images/Projects/Placeholder.png"
+        const val PROJECT_REEFSCAPE = "images/Projects/Placeholder.png"
 
         // Compose
         const val COMPOSE_CDT = "images/Compose/ComposeDesktopTemplate.png"

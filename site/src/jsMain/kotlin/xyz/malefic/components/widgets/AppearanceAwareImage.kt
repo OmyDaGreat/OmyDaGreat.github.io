@@ -50,6 +50,7 @@ fun AppearanceAwareImage(
     width: Int? = null,
     height: Int? = null,
     alt: String = "",
+    invert: Boolean = true,
     ref: ElementRefScope<HTMLImageElement>? = null,
 ) {
     val isLight =
@@ -58,10 +59,12 @@ fun AppearanceAwareImage(
             ColorMode.DARK -> false
         }
 
+    val shouldInvert = if (invert) isLight else !isLight
+
     Image(
         src = src,
         modifier =
-            Modifier.styleModifier { filter { if (isLight) invert(1) else invert(0) } }.then(modifier),
+            Modifier.styleModifier { filter { if (shouldInvert) invert(1) else invert(0) } }.then(modifier),
         variant = variant,
         width = width,
         height = height,
